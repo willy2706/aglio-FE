@@ -1,0 +1,48 @@
+<ion-view style="background: none;">
+  <ion-nav-bar class="bar-positive orange-bar">
+    <ion-nav-buttons side="left" ng-click="onSwipeRightWishtlist()">
+      <!-- Toggle left side menu -->
+      <button class="arrow_left" ng-click="onSwipeRightWishtlist()"></button>
+    </ion-nav-buttons>
+    <ion-nav-title>
+      <h1 class="title" style="text-align: left">Your Wishtlist</h1>
+    </ion-nav-title>
+    <!--<ion-nav-buttons side="right">-->
+    <!--<button menu-toggle="right" ng-click="popover.show($event)" class="button button-icon icon ion-search"></button>-->
+    <!--</ion-nav-buttons>-->
+  </ion-nav-bar>
+
+  <ion-content>
+    <script id="templates/searchwishlist.html" type="text/ng-template">
+      <ion-popover-view style="background: none; height: 190px;">
+        <ion-content scroll="false">
+          <div class="list" style="color: black;">
+            <a class="item" href="http://learn.ionicframework.com/" target="_blank">
+              Wishlist
+            </a>
+            <a class="item" ng-click="settings()">
+              Settings
+            </a>
+            <a class="item" href="http://showcase.ionicframework.com/" target="_blank">
+              Reset all
+            </a>
+            <a class="item" href="http://ionicframework.com/submit-issue/" target="_blank">
+              Help & feedback
+            </a>
+          </div>
+        </ion-content>
+      </ion-popover-view>
+    </script>
+    <ion-list>
+      <ion-item class="imgwishlist"> <!--class="item-thumbnail-left"-->
+      </ion-item>
+      <ion-item class="imgwishlist"> <!--class="item-thumbnail-left"-->
+      </ion-item>
+      <ion-item class="imgwishlist"> <!--class="item-thumbnail-left"-->
+      </ion-item>
+      <ion-item class="imgwishlist"> <!--class="item-thumbnail-left"-->
+      </ion-item>
+    </ion-list>
+    <div class="button button-add-wishlist" ng-click="addwishlist()" resize-go ng-style="{{style()}}" style="top : {{top1}}px; right: {{right1}}px"></div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,16 @@
+<ion-pane style="background: none;">
+  <ion-content>
+    <div class="live-container">
+      <img class="live-grab" src="data:image/jpeg;base64, {{jsBuffer.Image}}" ng-click="getImage()" imageonload="refreshPreview()">
+    </div>
+
+    <div class="item">
+      <button class="button button-block button-outline button-dark ion-android-earth" ng-click="getImage()">
+        Jpeg
+      </button>
+    </div>
+    {{tt}}
+
+    {{cameraPlus}}
+  </ion-content>
+</ion-pane>

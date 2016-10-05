@@ -1,0 +1,159 @@
+<ion-view on-swipe-right="snap()" on-swipe-left="wishlist()" style="background: none;">
+  <!--<ion-header-bar class="bar-positive orange-bar">-->
+  <!--<div class="buttons">-->
+  <!--<button class="arrowanalyze" ng-click="onSwipeRightAnalyze()"></button>-->
+  <!--</div>-->
+  <!--<h1 class="title" style="text-align: left">Budget Analysis</h1>-->
+  <!--</ion-header-bar>-->
+  <ion-nav-bar class="bar-positive orange-bar">
+    <ion-nav-buttons side="left">
+      <!-- Toggle left side menu -->
+      <button class="icondirection cameraleft" ng-click="snap()"></button>
+    </ion-nav-buttons>
+    <ion-nav-title>
+      <h1 class="title" style="text-align: center">Expenses</h1>
+    </ion-nav-title>
+    <ion-nav-buttons side="right">
+      <!-- Toggle left side menu -->
+      <button class="icondirection wishlistright" ng-click="wishlist()"></button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+
+  <ion-content>
+    <div class="list">
+      <label class="item item-radio" ng-click="expand('expenses2')" >
+        <input type="radio" name="group">
+        <div class="item item-icon-left">
+          <div class="categories category-books"></div>
+          Books
+        </div>
+        <div class="detailexpenses" style="display: none" id="expenses2">
+          <div class="dateexpenses">
+            1 Oktober 2015
+          </div>
+          <div class="imglistexpenses">
+            <img src = "img/expenses/book-1.png" class="imgexpenses"/>
+            <img src = "img/expenses/book-2.png" class="imgexpenses"/>
+          </div>
+        </div>
+      </label>
+      <label class="item item-radio" ng-click="expand('expenses3')">
+        <input type="radio" name="group">
+        <div class="item item-icon-left">
+          <div class=" categories category-car"></div>
+          Car
+        </div>
+        <div class="detailexpenses" style="display: none" id="expenses3">
+          <div class="dateexpenses">
+            1 Oktober 2015
+          </div>
+          <div class="imglistexpenses">
+            <img src = "img/expenses/car-1.png" class="imgexpenses"/>
+          </div>
+        </div>
+      </label>
+      <label class="item item-radio" ng-click="expand('expenses4')">
+        <input type="radio" name="group">
+        <div class="item item-icon-left">
+          <div class="categories category-clothes"></div>
+          Clothes
+        </div>
+        <div class="detailexpenses" style="display: none" id="expenses4">
+          <div class="dateexpenses">
+            1 Oktober 2015
+          </div>
+          <div class="imglistexpenses">
+            <img src = "img/expenses/clothes-1.png" class="imgexpenses"/>
+            <img src = "img/expenses/clothes-2.png" class="imgexpenses"/>
+            <img src = "img/expenses/clothes-3.png" class="imgexpenses"/>
+          </div>
+        </div>
+      </label>
+      <label class="item item-radio" ng-click="expand('expenses6')">
+        <input type="radio" name="group">
+        <div class="item item-icon-left">
+          <div class="categories category-food"></div>
+          Food
+        </div>
+        <div class="detailexpenses" style="display: none" id="expenses6">
+          <div class="dateexpenses">
+            1 Oktober 2015
+          </div>
+          <div class="imglistexpenses">
+            <img src = "img/expenses/food-1.png" class="imgexpenses"/>
+            <img src = "img/expenses/food-2.png" class="imgexpenses"/>
+            <img src = "img/expenses/food-3.png" class="imgexpenses"/>
+            <br/>
+            <img src = "img/expenses/food-4.png" class="imgexpenses"/>
+            <img src = "img/expenses/food-5.png" class="imgexpenses"/>
+            <img src = "img/expenses/food-6.png" class="imgexpenses"/>
+          </div>
+        </div>
+      </label>
+      <label class="item item-radio" ng-click="expand('expenses7')">
+        <input type="radio" name="group">
+        <div class="item item-icon-left">
+          <div class="categories category-groceries"></div>
+          Groceries
+        </div>
+        <div class="detailexpenses" style="display: none" id="expenses7">
+          <div class="dateexpenses">
+            1 Oktober 2015
+          </div>
+          <div class="imglistexpenses">
+            <img src = "img/expenses/groceries-1.png" class="imgexpenses"/>
+            <img src = "img/expenses/groceries-2.png" class="imgexpenses"/>
+            <img src = "img/expenses/groceries-3.png" class="imgexpenses"/>
+          </div>
+        </div>
+      </label>
+      <label class="item item-radio" ng-click="expand('expenses10')">
+        <input type="radio" name="group">
+        <div class="item item-icon-left">
+          <div class="categories category-leisure"></div>
+          Leisure
+        </div>
+        <div class="detailexpenses" style="display: none" id="expenses10">
+          <div class="dateexpenses">
+            1 Oktober 2015
+          </div>
+          <div class="imglistexpenses">
+            <img src = "img/expenses/leisure-1.png" class="imgexpenses"/>
+            <img src = "img/expenses/leisure-2.png" class="imgexpenses"/>
+          </div>
+        </div>
+      </label>
+      <label class="item item-radio" ng-click="expand('expenses14')">
+        <input type="radio" name="group">
+        <div class="item item-icon-left">
+          <div class="categories category-transportation"></div>
+          Transportation
+        </div>
+        <div class="detailexpenses" style="display: none" id="expenses14">
+          <div class="dateexpenses">
+            1 Oktober 2015
+          </div>
+          <div class="imglistexpenses">
+            <img src = "img/expenses/transport-1.png" class="imgexpenses"/>
+          </div>
+        </div>
+      </label>
+      <label class="item item-radio" ng-click="expand('expenses16')">
+        <input type="radio" name="group">
+        <div class="item item-icon-left">
+          <div class="categories category-treatment"></div>
+          Treatment
+        </div>
+        <div class="detailexpenses" style="display: none" id="expenses16">
+          <div class="dateexpenses">
+            1 Oktober 2015
+          </div>
+          <div class="imglistexpenses">
+            <img src = "img/expenses/treatment-1.png" class="imgexpenses"/>
+          </div>
+        </div>
+      </label>
+    </div>
+  </ion-content>
+</ion-view>
+

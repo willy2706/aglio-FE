@@ -1,0 +1,33 @@
+<ion-view style="background: none;">
+  <ion-nav-bar class="bar-positive orange-bar">
+    <ion-nav-buttons side="left">
+      <!-- Toggle left side menu -->
+      <button class="cancel" ng-click="cancel()"></button>
+    </ion-nav-buttons>
+    <ion-nav-title>
+      <h1 class="title" style="text-align: left">New Wish</h1>
+    </ion-nav-title>
+  </ion-nav-bar>
+
+  <div ng-click="ok()" class="add-wishlist-float-button">
+    <span class="height-fix">
+      <a class="content">
+      </a>
+    </span>
+  </div>
+  <ion-content>
+    <ion-list>
+      <ion-item class="addwishlist">
+      </ion-item>
+    </ion-list>
+    <div class="list list-inset">
+      <label class="item item-input">
+        <input type="text" placeholder="Title">
+      </label>
+      <label class="item item-input">
+        <input type="number" placeholder="Price">
+      </label>
+    </div>
+    <!--<div class="button button-ok-blue" ng-click="ok()" resize-go ng-style="{{style()}}" style="top : {{top1}}px; right: {{right1}}px"></div>-->
+  </ion-content>
+</ion-view>

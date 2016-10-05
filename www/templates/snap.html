@@ -1,0 +1,20 @@
+<ion-view on-swipe-left="expenses()" on-swipe-right="analyze()" on-swipe-down="budget()" class="snap" pukimak>
+  <ion-content scroll="false">
+    <div ng-show = "showinput" class="list price-input bg-transparant">
+      <label class="item item-input bg-transparant label-input-snap">
+        <input type="number" placeholder="Input price" id = "inputprice" class="input-price">
+      </label>
+    </div>
+    <div class="button button-settings" ng-hide = "showinput" ng-click="budget()" resize ng-style="{{style()}}" style="top : {{settingtop}}px; right: {{settingright}}px"></div>
+    <div class="button button-go-left" ng-hide = "showinput" ng-click="analyze()" resize ng-style="{{style()}}" style="top : {{top2}}px; right: {{right2}}px"></div>
+    <div class="button button-snap" ng-click="getPhoto()" resize ng-style="{{style()}}" style="top : {{top}}px; right: {{right}}px"></div>
+    <div class="button button-go-right" ng-hide = "showinput" ng-click="expenses()" resize-go ng-style="{{style()}}" style="top : {{top3}}px; right: {{right3}}px"></div>
+    <!--<div class="button button-go" ng-show = "showinput" ng-click="cb()" resize-go ng-style="{{style()}}" style="top : {{gotop}}px; right: {{goright}}px"></div>-->
+    <div ng-click="cb()" ng-show = "showinput" class="go-float-button">
+      <span class="height-fix">
+        <a class="content">
+        </a>
+      </span>
+    </div>
+  </ion-content>
+</ion-view>

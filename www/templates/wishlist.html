@@ -1,0 +1,198 @@
+<ion-view on-swipe-right="expenses()" on-swipe-left="analyze()" style="background: none;" pukimak>
+  <ion-nav-bar class="bar-positive orange-bar">
+    <ion-nav-buttons side="left">
+      <!-- Toggle left side menu -->
+      <button class="icondirection expensesleft" ng-click="expenses()"></button>
+    </ion-nav-buttons>
+    <ion-nav-title>
+      <h1 class="title" style="text-align: center">Wishtlist</h1>
+    </ion-nav-title>
+    <ion-nav-buttons side="right">
+      <button class="icondirection analysisright" ng-click="analyze()"></button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+  <div class="float-button">
+    <span class="height-fix">
+      <a ng-click="addwishlist()" class="content">
+      </a>
+    </span>
+  </div>
+  <ion-content>
+    <ion-list>
+      <!--id = "item1" ng-click="insert('item1')"-->
+      <ion-item class="wishlist-common wishlist1" ng-click="expand('item1')" >
+      </ion-item>
+      <div id="item1" style="display: none">
+        <div class="isequalto" style="display: block">
+          is equal to
+        </div>
+        <div class="itemequal" style="display: inline-block">
+          <div class="leftequal">22</div>
+          <div class="midequal">X</div>
+          <div class="rightequal">
+            <img src="img/expenses/food-1.png"/>
+          </div>
+        </div> <br/>
+        <div class="itemequal" style="display: inline-block">
+          <div class="leftequal">20</div>
+          <div class="midequal">X</div>
+          <div class="rightequal">
+            <img src="img/expenses/food-2.png"/>
+          </div>
+        </div>
+      </div>
+      <ion-item class="wishlist-common wishlist2" ng-click="expand('item2')"> <!--class="item-thumbnail-left"-->
+      </ion-item>
+      <div id="item2" style="display: none">
+        <div class="isequalto" style="display: block">
+          is equal to
+        </div>
+        <div class="itemequal" style="display: inline-block">
+          <div class="leftequal">15</div>
+          <div class="midequal">X</div>
+          <div class="rightequal">
+            <img src="img/expenses/food-6.png"/>
+          </div>
+        </div> <br/>
+        <div class="itemequal" style="display: inline-block">
+          <div class="leftequalsingle">1</div>
+          <div class="midequal">X</div>
+          <div class="rightequal">
+            <img src="img/expenses/clothes-3.png"/>
+          </div>
+        </div>
+        <br/>
+        <div class="itemequal" style="display: inline-block">
+          <div class="leftequalsingle">1</div>
+          <div class="midequal">X</div>
+          <div class="rightequal">
+            <img src="img/expenses/car-1.png"/>
+          </div>
+        </div>
+      </div>
+
+      <!--item 3-->
+      <ion-item class="wishlist-common wishlist3" ng-click="expand('item3')"> <!--class="item-thumbnail-left"-->
+      </ion-item>
+      <div id="item3" style="display: none">
+        <div class="isequalto" style="display: block">
+          is equal to
+        </div>
+        <div class="itemequal" style="display: inline-block">
+          <div class="leftequal">10</div>
+          <div class="midequal">X</div>
+          <div class="rightequal">
+            <img src="img/expenses/treatment-1.png"/>
+          </div>
+        </div> <br/>
+        <div class="itemequal" style="display: inline-block">
+          <div class="leftequalsingle">5</div>
+          <div class="midequal">X</div>
+          <div class="rightequal">
+            <img src="img/expenses/clothes-1.png"/>
+          </div>
+        </div>
+        <br/>
+        <div class="itemequal" style="display: inline-block">
+          <div class="leftequalsingle">4</div>
+          <div class="midequal">X</div>
+          <div class="rightequal">
+            <img src="img/expenses/car-1.png"/>
+          </div>
+        </div>
+      </div>
+      <!--end of item 3-->
+
+      <!--item 4-->
+      <ion-item class="wishlist-common wishlist4" ng-click="expand('item4')" > <!--class="item-thumbnail-left"-->
+      </ion-item>
+      <div id="item4" style="display: none">
+        <div class="isequalto" style="display: block">
+          is equal to
+        </div>
+        <div class="itemequal" style="display: inline-block">
+          <div class="leftequal">10</div>
+          <div class="midequal">X</div>
+          <div class="rightequal">
+            <img src="img/expenses/book-2.png"/>
+          </div>
+        </div> <br/>
+        <div class="itemequal" style="display: inline-block">
+          <div class="leftequal">10</div>
+          <div class="midequal">X</div>
+          <div class="rightequal">
+            <img src="img/expenses/clothes-2.png"/>
+          </div>
+        </div>
+        <br/>
+        <div class="itemequal" style="display: inline-block">
+          <div class="leftequalsingle">6</div>
+          <div class="midequal">X</div>
+          <div class="rightequal">
+            <img src="img/expenses/leisure-1.png"/>
+          </div>
+        </div>
+      </div>
+      <!--end of item 4-->
+
+      <ion-item class="wishlist-common wishlist5" ng-click="expand('item5')" > <!--class="item-thumbnail-left"-->
+      </ion-item>
+      <!--item 5-->
+      <div id="item5" style="display: none">
+        <div class="isequalto" style="display: block">
+          is equal to
+        </div>
+        <div class="itemequal" style="display: inline-block">
+          <div class="leftequal">20</div>
+          <div class="midequal">X</div>
+          <div class="rightequal">
+            <img src="img/expenses/clothes-3.png"/>
+          </div>
+        </div>
+
+        <br/>
+        <div class="itemequal" style="display: inline-block">
+          <div class="leftequal">15</div>
+          <div class="midequal">X</div>
+          <div class="rightequal">
+            <img src="img/expenses/treatment-1.png"/>
+          </div>
+        </div>
+        <br/>
+        <div class="itemequal" style="display: inline-block">
+          <div class="leftequalsingle">5</div>
+          <div class="midequal">X</div>
+          <div class="rightequal">
+            <img src="img/expenses/leisure-2.png"/>
+          </div>
+        </div>
+        <br/>
+        <div class="itemequal" style="display: inline-block">
+          <div class="leftequal">10</div>
+          <div class="midequal">X</div>
+          <div class="rightequal">
+            <img src="img/expenses/food-2.png"/>
+          </div>
+        </div>
+        <br/>
+      </div>
+      <!--end of item 5-->
+      <ion-item class="wishlist-common wishlist6" ng-click="expand('item6')" > <!--class="item-thumbnail-left"-->
+      </ion-item>
+      <div id="item6" style="display: none">
+        <div class="isequalto" style="display: block">
+          is equal to
+        </div>
+        <div class="itemequal" style="display: inline-block">
+          <div class="leftequalsingle">4</div>
+          <div class="midequal">X</div>
+          <div class="rightequal">
+            <img src="img/expenses/leisure-2.png"/>
+          </div>
+        </div>
+        <br/>
+      </div>
+    </ion-list>
+    <!--<div class="button button-add-wishlist" ng-click="addwishlist()" resize-go resize style="top : {{top1}}px; right: {{right1}}px"></div>-->
+  </ion-content>
+</ion-view>

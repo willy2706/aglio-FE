@@ -1,0 +1,40 @@
+<ion-view on-swipe-right="onSwipeRightSettings()" style="background: none;">
+  <!--<ion-header-bar class="bar-positive orange-bar">-->
+  <!--<div class="buttons">-->
+  <!--<button class="arrowanalyze" ng-click="onSwipeRightAnalyze()"></button>-->
+  <!--</div>-->
+  <!--<h1 class="title" style="text-align: left">Budget Analysis</h1>-->
+  <!--</ion-header-bar>-->
+  <ion-nav-bar class="bar-positive orange-bar">
+    <ion-nav-buttons side="left">
+      <!-- Toggle left side menu -->
+      <button class="arrow_left" ng-click="onSwipeRightSettings()"></button>
+    </ion-nav-buttons>
+    <ion-nav-title>
+      <h1 class="title" style="text-align: left">Settings</h1>
+    </ion-nav-title>
+  </ion-nav-bar>
+
+  <ion-content scroll="false">
+    <ion-list>
+      <ion-item> <!--class="item-thumbnail-left"-->
+        <h2>Change your monthly budget</h2>
+        <p>Rp 7.500.000</p>
+      </ion-item>
+      <ion-item> <!--class="item-thumbnail-left"-->
+      <h2>Change currency</h2>
+      <p>Indonesian Rupiah (Rp)</p>
+      </ion-item>
+      <ion-checkbox class="item-checkbox-right" ng-checked="true">
+        Enable Passlock Code
+      </ion-checkbox>
+      <ion-item>
+        Set passlock code
+      </ion-item>
+      <ion-checkbox class="item-checkbox-right" ng-checked="true">
+        <h2>Auto-save Pictures</h2>
+        <p>Save snipped pictures to device</p>
+      </ion-checkbox>
+    </ion-list>
+  </ion-content>
+</ion-view>

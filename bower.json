@@ -1,0 +1,10 @@
+{
+  "name": "HelloIonic",
+  "private": "true",
+  "dependencies": {
+    "ng-mfb": "0.6.2"
+  },
+  "devDependencies": {
+    "ionic": "driftyco/ionic-bower#1.3.1"
+  }
+}
