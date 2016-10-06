@@ -23,3 +23,16 @@
 --------------- 
       ionic run android
 
+
+# Kerjaan
+Liat folder
+1. kaito
+- gambar 1, 10 dan 6
+- gambar 2
+- gambar 3 dan 7
+2. kanya
+- gambar 11 dan 12
+- gambar 4
+- gambar 8 dan 9
+3. willy
+gabungin ui kalian dengan back end
