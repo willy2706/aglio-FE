@@ -1,0 +1,28 @@
+.image-home {
+  float: left;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+
+.desc-home {
+  font-size: 13px;
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+.searchbar-home {
+  background-color: white;
+  padding-left: 20px;
+}
+
+.price-home {
+  float: left;
+  padding-right: 40px;
+  font-size: 13px;
+  color: #76aaf7;
+}
+
+.expdate-home {
+  font-size: 13px;
+  color: #d95757
+}
