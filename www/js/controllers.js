@@ -13,6 +13,7 @@ angular.module('starter.controllers', [])
 
     obj.$bindTo($scope, "data")
   })
+  
 .controller('DashCtrl', function($scope) {})
 
 .controller('ChatsCtrl', function($scope, Chats) {
