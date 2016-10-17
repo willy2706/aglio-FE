@@ -2,8 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+
     <title></title>
 
     <link href="lib/ng-mfb/mfb/dist/mfb.css" rel="stylesheet"/>
@@ -12,7 +11,6 @@
     <link href="css/style.css" rel="stylesheet">
 
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
-    <link href="css/ionic.app.css" rel="stylesheet">
     -->
 
     <!-- another js library -->
@@ -28,6 +26,26 @@
 
     <!-- your app's js -->
     <script src="lib/ng-mfb/src/mfb-directive.js"></script>
+    <script src="lib/firebase/firebase.js"></script>
+    <script src="lib/angularfire/dist/angularfire.min.js"></script>
+    <script src="js/firebase.js"></script>
+    <script src="js/angularfire.min.js"></script>
+    <!-- Firebase -->
+    <!--<script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>-->
+
+    <!--&lt;!&ndash; AngularFire &ndash;&gt;-->
+    <!--<script src="https://cdn.firebase.com/libs/angularfire/2.0.1/angularfire.min.js"></script>-->
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyDEl0E8S37meu54CQY2HyJpXVUUYLi1jck",
+        authDomain: "aglio1-4cef2.firebaseapp.com",
+        databaseURL: "https://aglio1-4cef2.firebaseio.com",
+        storageBucket: "",
+        messagingSenderId: "507060939680"
+      };
+      firebase.initializeApp(config);
+    </script>
     <script src="js/app.js"></script>
     <script src="js/directive.js"></script>
     <script src="js/controllers.js"></script>

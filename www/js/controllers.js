@@ -1,6 +1,10 @@
 angular.module('starter.controllers', [])
-  .controller('AglioMainCtrl', function($scope) {
+  .controller('AglioMainCtrl', function($scope, $firebaseObject) {
 
+    var ref = firebase.database().ref();
+    var obj = $firebaseObject(ref);
+    console.log(obj)
+    obj.$bindTo($scope, "data")
   })
 .controller('DashCtrl', function($scope) {})
 
