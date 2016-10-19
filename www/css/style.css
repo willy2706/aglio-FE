@@ -529,33 +529,3 @@
   margin-left:15px;
   margin-right: 10px;
 }
-
-.float-button-aglio {
-  background-color:#d95757;
-  opacity: 0.9;
-  color: white;
-  border-radius: 50%;
-  width: 30px;
-  padding: 25px;
-  font-size: 40px;
-  position: fixed;
-  bottom: 5%; 
-  right: 48%; 
-  z-index: 1000;
-}
- 
-.float-button-aglio .height_fix {
-  margin-top: 100%;
-  border: 1px solid red;
-}
- 
-.float-button-aglio .float-content {
-  position: absolute;
-  left: 0;
-  top: 50%;
-  height: 100%;
-  width: 100%;
-  text-align: center;
-  margin-top: -20px;
-  color: white;
-}
