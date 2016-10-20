@@ -38,6 +38,14 @@ angular.module('starter', ['firebase','ionic', 'starter.controllers', 'starter.s
   // Set up the various states which the app can be in.
   // Each state's controller can be found in controllers.js
   $stateProvider
+  
+  // setup an abstract state for the tabs directive
+  // .state('tab', {
+  //   url: '/tab',
+  //   abstract: true,
+  //   templateUrl: 'templates/aglio/tabs.html'
+  // })
+
   .state('m', {
     url: '/m',
     templateUrl: 'templates/m.html',
