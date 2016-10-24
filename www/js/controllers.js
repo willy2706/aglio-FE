@@ -13,6 +13,21 @@ angular.module('starter.controllers', [])
 
     obj.$bindTo($scope, "data")
   })
+
+  .controller('ShareFoodCtrl', function($scope, $firebaseObject, $firebaseArray) {
+
+    var ref = firebase.database().ref().child("food");
+    var obj = $firebaseObject(ref);
+    console.log(obj);
+    var x;
+    firebase.database().ref().child("food").on('value', function(snap) {
+      var y = snap.val()
+      $scope.data = y;
+      console.log(y);
+    });
+
+    obj.$bindTo($scope, "data")
+  })
   
 .controller('DashCtrl', function($scope) {})
 

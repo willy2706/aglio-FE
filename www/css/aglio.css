@@ -26,3 +26,73 @@
   font-size: 13px;
   color: #d95757
 }
+
+@font-face {
+    font-family: 'SourceSansPro';
+    src: url('../fonts/source-sans-pro.regular.ttf');
+}
+
+@font-face {
+    font-family: 'LatoLight';
+    src: url('../fonts/Lato-Light.ttf');
+}
+
+.background-blue {
+  background-color: #76aaf7;
+}
+
+.font-white {
+  color: white;
+}
+
+.button-bottom {
+  font-size: 24px;
+  margin-top: 0px;
+}
+
+.photo-area {
+  background-color: #f2f4f7;
+  height: 80px;
+  z-index: 999;
+}
+
+.float-button-aglio {
+  opacity: 0.9;
+  color: white;
+  border-radius: 50%;
+  width: 30px;
+  padding: 25px;
+  font-size: 40px;
+  position: fixed;
+  top: 56px; /* Adjust height */
+  right: 7%; /* Adjust position */
+  z-index: 9999;
+  background-color: #d95757;
+  box-shadow: 0.5px 1px 5px grey;
+}
+
+.float-button-aglio .height_fix {
+  margin-top: 100%;
+  border: 1px solid red;
+}
+ 
+.float-button-aglio .content {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  margin-top: -20px;
+  color: white;
+}
+
+.content-form {
+  margin-top: 40px;
+  font-family: SourceSansPro;
+}
+
+.item-input {
+  border-bottom-width: 0px;
+  border-top-width: 0px;
+}
