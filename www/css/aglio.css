@@ -94,6 +94,12 @@
   z-index: 999;
 }
 
+.photo-area-request {
+  background-color: #f2f4f7;
+  height: 100px;
+  z-index: 999;
+}
+
 .float-button-aglio {
   opacity: 0.9;
   color: white;
@@ -125,6 +131,37 @@
   color: white;
 }
 
+.float-photo-user {
+  opacity: 0.9;
+  color: white;
+  border-radius: 50%;
+  width: 30px;
+  padding: 25px;
+  font-size: 40px;
+  position: fixed;
+  top: 70px; /* Adjust height */
+  right: 7%; /* Adjust position */
+  z-index: 9999;
+  background-color: #7b7b7b;
+  box-shadow: 0.5px 1px 5px grey;
+}
+
+.float-photo-user .height_fix {
+  margin-top: 100%;
+  border: 1px solid red;
+}
+ 
+.float-photo-user .content {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  margin-top: -20px;
+  color: white;
+}
+
 .content-form {
   margin-top: 40px;
   font-family: SourceSansPro;
@@ -144,4 +181,21 @@
 
 .background-gray {
   background-color: #f2f4f7;
+}
+
+.tabs-striped.tabs-color-light .tab-item.tab-item-active, .tabs-striped.tabs-color-light .tab-item.active, .tabs-striped.tabs-color-light .tab-item.activated {
+  color: #d95757;
+  border: 0 solid #d95757;
+  font-family: SourceSansPro;
+  font-size: 16px;
+}
+
+.tabs-striped.tabs-color-light .tab-item {
+  color: #555656;
+  font-family: SourceSansPro;
+  font-size: 16px;
+}
+
+.tab-nav.tabs {
+  top: 115px;
 }
