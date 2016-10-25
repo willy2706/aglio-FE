@@ -68,7 +68,7 @@ angular.module('starter.controllers', [])
 
     obj.$bindTo($scope, "data")
 
-    $ionicModal.fromTemplateUrl('modal-share-food.html', {
+    $ionicModal.fromTemplateUrl('modal-request-food.html', {
       scope: $scope,
       animation: 'slide-in-up'
     }).then(function(modal) {

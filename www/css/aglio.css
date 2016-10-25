@@ -199,3 +199,35 @@
 .tab-nav.tabs {
   top: 115px;
 }
+
+.content-tabs-detail {
+  margin-top: 80px;
+  font-family: SourceSansPro;
+}
+
+.row.tabs-detail {
+  padding-left: 26px;
+}
+
+.font-blue {
+  color: #76aaf7;
+}
+
+.text-detail {
+  padding-left: 32px;
+  padding-right: 32px;
+  font-size: 13px;
+  color: #555656;
+}
+
+.row.tabs-detail.pickup {
+  margin-top: 8px;
+}
+
+.location-pickup {
+  margin-top: 0px;
+  margin-right: 32px;
+  margin-left: 32px;
+  height: 130px;
+  background-color: #555656;
+}

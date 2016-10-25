@@ -12,7 +12,7 @@
     </ion-nav-title>
   </ion-nav-bar>
 
-  <ion-content fab-scroll-container class="has-footer">
+  <ion-content class="has-footer">
     <div class="photo-area-request">
       <div class="float-photo-user">
         <span class="height-fix">
@@ -26,25 +26,33 @@
     <ion-tabs class="tabs-striped tabs-top tabs-color-light">
       <ion-tab title="Detail">
         <!-- Tab 1 content -->
-        <div class="list content-form">
-          <label class="item item-input">
-            <span class="input-label">Name</span>
-            <input type="text" class="border-input">
-          </label>
-          <label class="item item-input">
-            <span class="input-label">Type</span>
-            <input type="text">
-          </label>
-          <label class="item item-input">
-            <span class="input-label">Expired Date</span>
-            <input type="text">
-          </label>
-          <label class="item item-input">
-            <span class="input-label">Price</span>
-            <input type="number">
-          </label>
+        <div class="list content-tabs-detail">
+          <p class="text-detail">Organic Washington apples. Happy to trade with other veggies. Really looking to trade with organic broccoli.</p>
+          <div class="row tabs-detail">
+            <div class="col">Type</div>
+            <div class="col font-blue">Fresh Food</div>
+          </div>
+          <div class="row tabs-detail">
+            <div class="col">Expired Date</div>
+            <div class="col font-blue">7 Days</div>
+          </div>
+          <div class="row tabs-detail">
+            <div class="col">Price</div>
+            <div class="col font-blue">Free</div>
+          </div>
+          <div class="row tabs-detail">
+            <div class="col">Quantity</div>
+            <div class="col font-blue">5</div>
+          </div>
+          <div class="row tabs-detail pickup">
+            <div class="col">Pick-up Location</div>
+          </div>
+          <div class="location-pickup">
+            
+          </div>
         </div>
       </ion-tab>
+
       <ion-tab title="Discussion">
         <!-- Tab 2 content -->
       </ion-tab>
@@ -54,7 +62,7 @@
   </ion-content>
 
   <!-- MODAL -->
-  <script id="modal-share-food.html" type="text/ng-template">
+  <script id="modal-request-food.html" type="text/ng-template">
     <ion-modal-view>
       <ion-content class="padding background-gray">
         <div class="feedback">
