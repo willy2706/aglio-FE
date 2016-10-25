@@ -13,6 +13,7 @@
 .searchbar-home {
   background-color: white;
   padding-left: 20px;
+  margin-top: 90px;
 }
 
 .price-home {
@@ -196,8 +197,27 @@
   font-size: 16px;
 }
 
-.tab-nav.tabs {
-  top: 115px;
+.tabs-striped.tabs-color-light .tab-item.tab-item-active .tabs-main, .tabs-striped.tabs-color-light .tab-item.active .tabs-main, .tabs-striped.tabs-color-light .tab-item.activated .tabs-main {
+  color: #d95757;
+  border: 0 solid #d95757;
+  font-family: SourceSansPro;
+  font-size: 16px;
+  background-color: #f2f4f7;
+}
+
+.tabs-striped.tabs-color-light .tab-item .tabs-main {
+  color: #555656;
+  font-family: SourceSansPro;
+  font-size: 16px;
+  background-color: #f2f4f7;
+}
+
+.tab-nav.tabs.tabs-request {
+  top: 100px;
+}
+
+.tabs-striped .tabs-top .tabs-color-light .tabs-request {
+  margin-top: 100px;
 }
 
 .content-tabs-detail {
