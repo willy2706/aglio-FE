@@ -41,6 +41,44 @@
   background-color: #76aaf7;
 }
 
+.button-round {
+  border-radius: 20px;
+  color: white;
+}
+
+.button:hover {
+  color: white;
+}
+
+.button-round:active {
+  border-radius: 20px;
+  background-color: #abccfd;
+  color: white;
+  border-color: #abccfd;
+}
+
+.feedback {
+  margin-top: 130px;
+  text-align: center;
+  font-family: SourceSansPro;
+}
+
+.words-feedback {
+  font-size: 16px;
+}
+
+.button-cool {
+  margin-top: 40px;
+}
+
+.button.background-blue.button-round {
+  width: 120px;
+  margin-right: auto;
+  margin-left: auto;
+  font-family: SourceSansPro;
+  font-size: 20px;
+}
+
 .font-white {
   color: white;
 }
@@ -95,4 +133,15 @@
 .item-input {
   border-bottom-width: 0px;
   border-top-width: 0px;
+}
+
+.image-modal {
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+  width: 100px;
+}
+
+.background-gray {
+  background-color: #f2f4f7;
 }
