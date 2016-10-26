@@ -1,6 +1,6 @@
 angular.module('starter.services', ['ng-mfb'])
 .config(function($compileProvider){
-  $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|tel):/);
+  $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|tel):|data:image\//);
 })
 .factory('Camera', ['$q', function($q) {
 

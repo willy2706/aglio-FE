@@ -6,6 +6,12 @@ angular.module('starter.controllers', [])
     var x;
     firebase.database().ref().child("food").on('value', function(snap) {
       var y = snap.val()
+      var ordered = {};
+      Object.keys(y).sort().forEach(function(key) {
+      console.log(key)
+        ordered[key] = y[key];
+      });
+      console.log(ordered)
       $scope.data = y;
       console.log(y);
     });
@@ -13,32 +19,9 @@ angular.module('starter.controllers', [])
     obj.$bindTo($scope, "data")
   })
 
-  .controller('ShareFoodCtrl', function($scope, $firebaseObject, $firebaseArray, $ionicModal, Camera) {
-    $scope.url = 'hi';
+  .controller('ShareFoodCtrl', function($state, $scope, $firebaseObject, $firebaseArray, $ionicModal, Camera) {
     $scope.showinput = false;
-    //var options1 = {
-    //  quality: 50,
-    //  destinationType: Camera.DestinationType.DATA_URL,
-    //  sourceType: Camera.PictureSourceType.CAMERA,
-    //  allowEdit: true,
-    //  encodingType: Camera.EncodingType.JPEG,
-    //  targetWidth: 100,
-    //  targetHeight: 100,
-    //  popoverOptions: CameraPopoverOptions,
-    //  saveToPhotoAlbum: false
-    //};
     $scope.photo = function() {
-      //camera.getPicture(onSuccess, onFail, { quality: 50,
-      //  destinationType: Camera.DestinationType.DATA_URL });
-      //
-      //function onSuccess(imageData) {
-      //  var image = document.getElementById('myImage');
-      //  image.src = "data:image/jpeg;base64," + imageData;
-      //}
-      //function onFail(message) {
-      //  alert('Failed because: ' + message);
-      //}
-      $scope.url = "SDF";
         Camera.getPicture({
         quality: 75,
         targetWidth: 720,
@@ -46,7 +29,7 @@ angular.module('starter.controllers', [])
         saveToPhotoAlbum: false,
         destinationType: navigator.camera.DestinationType.DATA_URL
       }).then(function (imageURI) {
-        $scope.url = imageURI;
+        $scope.url = "data:image/png;base64, " + imageURI;
         $scope.showinput = true;
         console.log(imageURI);
       }, function (err) {
@@ -55,23 +38,18 @@ angular.module('starter.controllers', [])
       });
     };
 
-    //var ref = firebase.database().ref();
-    $scope.url = "Ere"
+    $scope.sharefood = {};
     $scope.share = function() {
-      firebase.database().ref().child('user').child("he").set({
-        username: $scope.url
-      });
-
+      var d = new Date();
+      var n = d.getTime();
+      var id = Math.floor(n / -1000);
+      $scope.sharefood.created = n;
+      $scope.sharefood.img_url = $scope.url == null ? "" : $scope.url;
+      firebase.database().ref().child('food').child(id).set($scope.sharefood);
+      $scope.modal.show();
       //data:image/png;base64,
       //var url = [$scope.url];
       //var bl = new Blob(url, {type: 'image/jpeg'})
-      //ref.child("abcs.jpg").put(bl).then(function(snapshot) {
-      //  console.log('Uploaded a blob or file!');
-      //  $scope.url = "Berhasil"
-      //}, function (err) {
-      //  console.log("ERR")
-      //  $scope.url = "Gaga";
-      //});
     };
 
     $ionicModal.fromTemplateUrl('modal-share-food.html', {
@@ -80,6 +58,9 @@ angular.module('starter.controllers', [])
     }).then(function(modal) {
       $scope.modal = modal;
     });
+    $scope.cool = function() {
+      $scope.modal.hide();
+    }
     $scope.openModal = function() {
       $scope.modal.show();
     };
@@ -88,15 +69,19 @@ angular.module('starter.controllers', [])
     };
     // Cleanup the modal when we're done with it!
     $scope.$on('$destroy', function() {
+//      console.log("destroy");
       $scope.modal.remove();
     });
     // Execute action on hide modal
     $scope.$on('modal.hidden', function() {
       // Execute action
+      $state.go('main')
+      console.log("hidden")
     });
     // Execute action on remove modal
     $scope.$on('modal.removed', function() {
       // Execute action
+      console.log("remove")
     });
   })
 
