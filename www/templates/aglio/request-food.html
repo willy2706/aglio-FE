@@ -1,0 +1,91 @@
+<ion-view style="background: white;">
+  <!--<ion-header-bar class="bar-positive orange-bar">-->
+  <!--<div class="buttons">-->
+  <!--<button class="arrowanalyze" ng-click="onSwipeRightAnalyze()"></button>-->
+  <!--</div>-->
+  <!--<h1 class="title" style="text-align: left">Budget Analysis</h1>-->
+  <!--</ion-header-bar>-->
+  <ion-nav-bar class="bar-positive grey-bar" >
+    <ion-nav-title>
+    <a class="button icon-left ion-ios-arrow-left button-clear button-dark"></a>
+      <h1 class="title" style="text-align: center; font-family: LatoLight; color: #242a34; font-size: 22px;">(Food Name)</h1>
+    </ion-nav-title>
+  </ion-nav-bar>
+
+  <ion-content class="has-footer">
+    <div class="photo-area-request">
+      <div class="float-photo-user">
+        <span class="height-fix">
+          <a class="content">
+            <i class="ion-android-person"> </i>
+          </a>
+        </span>
+      </div>
+    </div>
+    
+    <ion-tabs class="tabs-striped tabs-color-light tabs-request">
+      <ion-tab title="Detail">
+        <!-- Tab 1 content -->
+        <div class="list content-tabs-detail">
+          <p class="text-detail">Organic Washington apples. Happy to trade with other veggies. Really looking to trade with organic broccoli.</p>
+          <div class="row tabs-detail">
+            <div class="col">Type</div>
+            <div class="col font-blue">Fresh Food</div>
+          </div>
+          <div class="row tabs-detail">
+            <div class="col">Expired Date</div>
+            <div class="col font-blue">7 Days</div>
+          </div>
+          <div class="row tabs-detail">
+            <div class="col">Price</div>
+            <div class="col font-blue">Free</div>
+          </div>
+          <div class="row tabs-detail">
+            <div class="col">Quantity</div>
+            <div class="col font-blue">5</div>
+          </div>
+          <div class="row tabs-detail pickup">
+            <div class="col">Pick-up Location</div>
+          </div>
+          <div class="location-pickup">
+            
+          </div>
+        </div>
+      </ion-tab>
+
+      <ion-tab title="Discussion">
+        <!-- Tab 2 content -->
+      </ion-tab>
+    </ion-tabs>
+  
+    
+  </ion-content>
+
+  <!-- MODAL -->
+  <script id="modal-request-food.html" type="text/ng-template">
+    <ion-modal-view>
+      <ion-content class="padding background-gray">
+        <div class="feedback">
+          <img class="image-modal" src="img/garbage.png" alt="">
+          <h4>Congratulations!</h4>
+          <p class="words-feedback">You've just been reducing food waste.</p>
+          <div class="button-cool">
+            <button class="button background-blue button-round">
+              Cool!
+            </button>
+          </div>
+        </div>
+      </ion-content>
+    </ion-modal-view>
+  </script>
+
+  <!-- STICKY BUTTON BOTTOM -->
+  <ion-footer-bar class="background-blue" style="height:50px;">
+    <button class="button button-large button-full background-blue font-white button-bottom" style="margin-top:5px; font-size:24px; font-family:SourceSansPro;" ng-click="modal.show()">
+      REQUEST
+    </button>
+  </ion-footer-bar>
+</ion-view>
+
+
+

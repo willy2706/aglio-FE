@@ -1,0 +1,85 @@
+<ion-view style="background: white;">
+  <!--<ion-header-bar class="bar-positive orange-bar">-->
+  <!--<div class="buttons">-->
+  <!--<button class="arrowanalyze" ng-click="onSwipeRightAnalyze()"></button>-->
+  <!--</div>-->
+  <!--<h1 class="title" style="text-align: left">Budget Analysis</h1>-->
+  <!--</ion-header-bar>-->
+  <ion-nav-bar class="bar-positive grey-bar" >
+    <ion-nav-title>
+    <a class="button icon-left ion-ios-arrow-left button-clear button-dark"></a>
+      <h1 class="title" style="text-align: center; font-family: LatoLight; color: #242a34; font-size: 22px;">Share Food</h1>
+    </ion-nav-title>
+  </ion-nav-bar>
+
+  <ion-content fab-scroll-container class="has-footer">
+    <div class="photo-area">
+      <div class="float-button-aglio">
+        <span class="height-fix">
+          <a class="content">
+            <i class="ion-ios-camera-outline"> </i>
+          </a>
+        </span>
+      </div>
+    </div>
+  
+    <div class="list content-form">
+      <label class="item item-input">
+        <span class="input-label">Name</span>
+        <input type="text" class="border-input">
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Type</span>
+        <input type="text">
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Expired Date</span>
+        <input type="text">
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Price</span>
+        <input type="number">
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Quantity</span>
+        <input type="number">
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Info</span>
+        <input type="text">
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Pick-up Location</span>
+        <input type="text">
+      </label>
+    </div>
+  </ion-content>
+
+  <!-- MODAL -->
+  <script id="modal-share-food.html" type="text/ng-template">
+    <ion-modal-view>
+      <ion-content class="padding background-gray">
+        <div class="feedback">
+          <img class="image-modal" src="img/garbage.png" alt="">
+          <h4>Congratulations!</h4>
+          <p class="words-feedback">You've just been reducing food waste.</p>
+          <div class="button-cool">
+            <button class="button background-blue button-round">
+              Cool!
+            </button>
+          </div>
+        </div>
+      </ion-content>
+    </ion-modal-view>
+  </script>
+
+  <!-- STICKY BUTTON BOTTOM -->
+  <ion-footer-bar class="background-blue" style="height:50px;">
+    <button class="button button-large button-full background-blue font-white button-bottom" style="margin-top:5px; font-size:24px; font-family:SourceSansPro;" ng-click="modal.show()">
+      SHARE
+    </button>
+  </ion-footer-bar>
+</ion-view>
+
+
+
