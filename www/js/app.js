@@ -38,7 +38,7 @@ angular.module('starter', ['firebase','ionic', 'starter.controllers', 'starter.s
   // Set up the various states which the app can be in.
   // Each state's controller can be found in controllers.js
   $stateProvider
-  
+
   // setup an abstract state for the tabs directive
   // .state('tab', {
   //   url: '/tab',
@@ -65,6 +65,36 @@ angular.module('starter', ['firebase','ionic', 'starter.controllers', 'starter.s
     url: '/expenses',
     templateUrl: 'templates/expenses.html',
     controller: 'ExpensesCtrl'
+  })
+  .state('aglio', {
+    url: '/aglio',
+    abstract: true,
+    templateUrl: 'templates/aglio/tabs.html'
+  })
+  .state('aglio.findfood', {
+    url: '/findfood',
+    views: {
+      'tab-findfood': {
+        templateUrl: 'templates/aglio/tab-findfood.html',
+        controller: 'AglioMainCtrl'
+      }
+    }
+  })
+  .state('aglio.recipe', {
+    url: '/recipe',
+    views: {
+      'tab-recipe': {
+        templateUrl: 'templates/aglio/recipe.html'
+      }
+    }
+  })
+  .state('aglio.tips', {
+    url: '/tips',
+    views: {
+      'tab-tips': {
+        templateUrl: 'templates/aglio/tips.html'
+      }
+    }
   })
   .state('main', {
       url: '/main',
@@ -168,6 +198,6 @@ angular.module('starter', ['firebase','ionic', 'starter.controllers', 'starter.s
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/main');
+  $urlRouterProvider.otherwise('/share-food');
 
 });

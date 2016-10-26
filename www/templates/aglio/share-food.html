@@ -13,7 +13,7 @@
   </ion-nav-bar>
 
   <ion-content fab-scroll-container class="has-footer">
-    <div class="photo-area">
+    <div class="photo-area" ng-click="photo()">
       <div class="float-button-aglio">
         <span class="height-fix">
           <a class="content">
@@ -22,11 +22,11 @@
         </span>
       </div>
     </div>
-  
+
     <div class="list content-form">
       <label class="item item-input">
         <span class="input-label">Name</span>
-        <input type="text" class="border-input">
+        <input type="text" class="border-input" ng-model="url">
       </label>
       <label class="item item-input">
         <span class="input-label">Type</span>
