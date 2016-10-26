@@ -8,6 +8,12 @@
 
 
   <ion-content>
+    <nav mfb-menu position="br" effect="slidein-spring
+" active-icon="ion-ios-close-empty" resting-icon="ion-ios-plus-empty" toggling-method="click">
+      <button mfb-button icon="ion-document-text">tes</button>
+      <button mfb-button icon="ion-clipboard"></button>
+      <button mfb-button icon="ion-android-restaurant"></button>
+    </nav>
     <ion-nav-bar class="bar-positive grey-bar" >
       <ion-nav-title>
         <h1 class="title" style="text-align: center; font-family: LatoLight; color: #242a34; font-size: 22px;">AGLIO</h1>
@@ -22,7 +28,7 @@
             <input type="text" name="search" placeholder="Search..">
           </div>
 
-          <ion-list fab-scroll-container>
+          <ion-list>
             <ion-item ng-repeat = "(key,value) in data">
               <div>
                 <img src={{value.img_url}} height="75" width="75" class="image-home">
@@ -105,9 +111,11 @@
   </ion-content> -->
 
   <!-- Floating Button -->
-  <ion-fab>
+  <!-- <ion-fab>
     <i class="icon ion ion-android-add"></i>
-  </ion-fab>
+  </ion-fab> -->
+
+
 
 </ion-view>
 

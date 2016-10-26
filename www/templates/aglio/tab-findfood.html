@@ -7,7 +7,7 @@
   <!--</ion-header-bar>-->
 
 
-  <ion-content>
+  <ion-content fab-scroll-container>
     <!--<ion-nav-bar class="bar-positive grey-bar" >-->
       <!--<ion-nav-title>-->
         <!--<h1 class="title" style="text-align: center; font-family: LatoLight; color: #242a34; font-size: 22px;">AGLIO</h1>-->
@@ -20,7 +20,7 @@
         <input type="text" name="search" placeholder="Search..">
       </div>
 
-      <ion-list fab-scroll-container>
+      <ion-list >
         <ion-item ng-repeat = "(key,value) in data">
           <div>
             <img src={{value.img_url}} height="75" width="75" class="image-home">
