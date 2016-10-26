@@ -43,16 +43,36 @@ angular.module('starter.controllers', [])
         quality: 75,
         targetWidth: 720,
         correctOrientation: true,
-        saveToPhotoAlbum: false
+        saveToPhotoAlbum: false,
+        destinationType: navigator.camera.DestinationType.DATA_URL
       }).then(function (imageURI) {
         $scope.url = imageURI;
         $scope.showinput = true;
         console.log(imageURI);
       }, function (err) {
-        $scope.url = err
+        $scope.url = err;
         console.err(err);
       });
-    }
+    };
+
+    //var ref = firebase.database().ref();
+    $scope.url = "Ere"
+    $scope.share = function() {
+      firebase.database().ref().child('user').child("he").set({
+        username: $scope.url
+      });
+
+      //data:image/png;base64,
+      //var url = [$scope.url];
+      //var bl = new Blob(url, {type: 'image/jpeg'})
+      //ref.child("abcs.jpg").put(bl).then(function(snapshot) {
+      //  console.log('Uploaded a blob or file!');
+      //  $scope.url = "Berhasil"
+      //}, function (err) {
+      //  console.log("ERR")
+      //  $scope.url = "Gaga";
+      //});
+    };
 
     $ionicModal.fromTemplateUrl('modal-share-food.html', {
       scope: $scope,
