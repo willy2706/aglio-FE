@@ -1,9 +1,9 @@
-.pane {
+/*.pane {
   background: url('../img/main.png') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
-}
+}*/
 
 .snap {
   background: url('../img/snap.png') no-repeat center center fixed;
@@ -43,8 +43,6 @@
   border-bottom-width: thick;
   background: rgba(0,0,0,0.3);
 }
-
-
 
 .input-main {
   font-family: "Roboto";
@@ -528,34 +526,4 @@
 .imgexpenses {
   margin-left:15px;
   margin-right: 10px;
-}
-
-.float-button-aglio {
-  background-color:#d95757;
-  opacity: 0.9;
-  color: white;
-  border-radius: 50%;
-  width: 30px;
-  padding: 25px;
-  font-size: 40px;
-  position: fixed;
-  bottom: 5%; 
-  right: 48%; 
-  z-index: 1000;
-}
- 
-.float-button-aglio .height_fix {
-  margin-top: 100%;
-  border: 1px solid red;
-}
- 
-.float-button-aglio .float-content {
-  position: absolute;
-  left: 0;
-  top: 50%;
-  height: 100%;
-  width: 100%;
-  text-align: center;
-  margin-top: -20px;
-  color: white;
 }

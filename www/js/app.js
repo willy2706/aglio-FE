@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['firebase','ionic', 'starter.controllers', 'starter.services' , 'starter.directives'])
+angular.module('starter', ['firebase','ionic', 'starter.controllers', 'starter.services' , 'starter.directives', 'fabDirective'])
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -38,10 +38,28 @@ angular.module('starter', ['firebase','ionic', 'starter.controllers', 'starter.s
   // Set up the various states which the app can be in.
   // Each state's controller can be found in controllers.js
   $stateProvider
+  
+  // setup an abstract state for the tabs directive
+  // .state('tab', {
+  //   url: '/tab',
+  //   abstract: true,
+  //   templateUrl: 'templates/aglio/tabs.html'
+  // })
+
   .state('m', {
     url: '/m',
     templateUrl: 'templates/m.html',
     controller: 'AppCtrl'
+  })
+  .state('share-food', {
+    url: '/share-food',
+    templateUrl: 'templates/aglio/share-food.html',
+    controller: 'ShareFoodCtrl'
+  })
+  .state('request-food', {
+    url: '/request-food',
+    templateUrl: 'templates/aglio/request-food.html',
+    controller: 'RequestFoodCtrl'
   })
   .state('expenses', {
     url: '/expenses',
