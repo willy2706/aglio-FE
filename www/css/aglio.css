@@ -189,12 +189,14 @@
   border: 0 solid #d95757;
   font-family: SourceSansPro;
   font-size: 16px;
+  margin-top: 0px;
 }
 
 .tabs-striped.tabs-color-light .tab-item {
   color: #555656;
   font-family: SourceSansPro;
   font-size: 16px;
+  background-color: #f2f4f7;
 }
 
 .tabs-striped.tabs-color-light .tab-item.tab-item-active .tabs-main, .tabs-striped.tabs-color-light .tab-item.active .tabs-main, .tabs-striped.tabs-color-light .tab-item.activated .tabs-main {
@@ -214,6 +216,22 @@
 
 .tab-nav.tabs.tabs-request {
   top: 100px;
+}
+.tabs-striped.tabs-color-assertive .tab-item.tab-item-active, .tabs-striped.tabs-color-assertive .tab-item.active, .tabs-striped.tabs-color-assertive .tab-item.activated {
+  color: #d95757;
+  border: 0 solid #d95757;
+  font-family: SourceSansPro;
+  font-size: 16px;
+}
+
+.tabs-striped.tabs-color-assertive .tab-item {
+  color: #555656;
+  font-family: SourceSansPro;
+  font-size: 16px;
+}
+
+.tab-nav.tabs {
+  border-bottom: 0px;
 }
 
 .tabs-striped .tabs-top .tabs-color-light .tabs-request {
@@ -250,4 +268,42 @@
   margin-left: 32px;
   height: 130px;
   background-color: #555656;
+}
+
+.date-discussion {
+  font-size: 6px;
+  font-family: SourceSansPro;
+  color: #9da1a7;
+}
+
+.discussion-chat {
+  font-family: SourceSansPro;
+  font-size: 10px;
+}
+
+.discussion-name {
+  font-size: 12px;
+  font-family: SourceSansPro;
+}
+
+mfb-button .add-button-discussion {
+  width: 20px;
+}
+
+.input-discussion {
+  border-left-width: 0px;
+  border-right-width: 0px;
+  border-bottom-width: 1px;
+  border-color: #d95757;
+  padding-left: 0px;
+}
+
+input.input-text-discussion {
+  font-size: 13px;
+  font-family: SourceSansPro;
+}
+
+.input-text-discussion {
+  border-width: 0px;
+  padding: 1px;
 }
