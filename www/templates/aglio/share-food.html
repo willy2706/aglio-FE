@@ -26,15 +26,15 @@
     <div class="list content-form">
       <label class="item item-input">
         <span class="input-label">Name</span>
-        <input type="text" class="border-input" ng-model="sharefood.title">
+        <input type="text" class="border-input" ng-model="sharefood.title" required>
       </label>
       <label class="item item-input">
         <span class="input-label">Type</span>
-        <input type="text" ng-model="sharefood.type">
+        <input type="text" ng-model="sharefood.type" required>
       </label>
       <label class="item item-input">
         <span class="input-label" >Expired Date</span>
-        <input type="text" ng-model="sharefood.exp_date">
+        <input type="text" ng-click="openDatePicker()" ng-model="exp_datedisplay">
       </label>
       <label class="item item-input">
         <span class="input-label" >Price</span>
@@ -42,7 +42,7 @@
       </label>
       <label class="item item-input">
         <span class="input-label" >Quantity</span>
-        <input type="number" ng-model="sharefood.qty">
+        <input type="number" ng-model="sharefood.qty" min="1">
       </label>
       <label class="item item-input">
         <span class="input-label" >Info</span>
