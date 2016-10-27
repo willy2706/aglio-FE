@@ -95,6 +95,11 @@
   z-index: 999;
 }
 
+.share-photo {
+  height: 100px;
+  width: 360px;
+}
+
 .photo-area-request {
   background-color: #f2f4f7;
   height: 100px;
@@ -109,7 +114,7 @@
   padding: 25px;
   font-size: 40px;
   position: fixed;
-  top: 56px; /* Adjust height */
+  top: 73px; /* Adjust height */
   right: 7%; /* Adjust position */
   z-index: 9999;
   background-color: #d95757;
