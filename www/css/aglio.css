@@ -100,6 +100,11 @@
   width: 360px;
 }
 
+.request-photo {
+  height: 100px;
+  width: 360px;
+}
+
 .photo-area-request {
   background-color: #f2f4f7;
   height: 100px;
