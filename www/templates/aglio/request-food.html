@@ -28,24 +28,24 @@
         <div class="list content-tabs-detail">
           <p class="text-detail">{{data.desc}}</p>
           <div class="row tabs-detail">
-            <div class="col">Type</div>
+            <div class="col">Tipe</div>
             <div class="col font-blue">  {{data.type}}</div>
           </div>
           <div class="row tabs-detail">
-            <div class="col">Expired Date</div>
+            <div class="col">Kadaluwarsa</div>
             <div class="col font-blue">{{data.exp_date | date: 'dd/MM/yyyy'}}</div>
           </div>
           <div class="row tabs-detail">
-            <div class="col">Price</div>
+            <div class="col">Harga</div>
             <div class="col font-blue" ng-if="data.price!=0">IDR {{data.price}}</div>
             <div class="col font-blue" ng-if="data.price==0">Free</div>
           </div>
           <div class="row tabs-detail">
-            <div class="col">Quantity</div>
+            <div class="col">Jumlah</div>
             <div class="col font-blue">{{data.qty}}</div>
           </div>
           <div class="row tabs-detail pickup">
-            <div class="col">Pick-up Location</div>
+            <div class="col">Lokasi Jemput</div>
             <div class="col font-blue">{{data.location}}</div>
           </div>
           <!--<div class="location-pickup">-->
@@ -53,7 +53,7 @@
         </div>
       </ion-tab>
 
-      <ion-tab title="Discussion">
+      <ion-tab title="Diskusi">
         <!-- Tab 2 content -->
         <div class="list">
 
@@ -81,7 +81,7 @@
           <div class="item item-avatar" style="border-bottom-width:0px; border-top-width:0px; padding-top: 10px; padding-bottom: 5px;">
             <img src="img/add-discussion.png">
             <label class="item item-input input-discussion">
-              <input class="input-text-discussion" placeholder="Have something in mind? Ask a question">
+              <input class="input-text-discussion" placeholder="Memiliki pertanyaan? Beri komentar di sini">
             </label>
           </div>
 
@@ -96,38 +96,38 @@
   <script id="modal-request-food.html" type="text/ng-template">
     <ion-modal-view>
       <ion-header-bar class="header-modal-request">
-        <h1 class="title modal-title" style="text-align:center; color: #555656; font-family: LatoLight;">Request This Item</h1>
+        <h1 class="title modal-title" style="text-align:center; color: #555656; font-family: LatoLight;">Pesan Makanan Ini</h1>
       </ion-header-bar>
       <ion-content class="padding">
         <div class="request">
           <div class="list">
             <div class="item item-avatar" style="border-width:0px;">
               <img src="img/fresh-apples-icon.png">
-              <h2 class="discussion-name">Fresh Apples</h2>
+              <h2 class="discussion-name">Apel Malang</h2>
               <p class="price-request" ng-if="data.price!=0">IDR {{data.price}}</p>
               <p class="price-request" ng-if="data.price==0">Free</p>
               <p class="exp-date-request">{{data.exp_date | date: 'dd/MM/yyyy'}}</p>
             </div>
             <label class="item item-input item-stacked-label input-request">
-              <span class="input-label">Quantity</span>
-              <input class="input-data-request" type="number" placeholder="Input number" max = "{{data.qty}}">
+              <span class="input-label">Jumlah</span>
+              <input class="input-data-request" type="number" placeholder="Masukkan jumlah" max = "{{data.qty}}">
             </label>
             <label class="item item-input item-stacked-label input-request">
-              <span class="input-label">Delivery to</span>
-              <input class="input-data-request"  type="text" placeholder="Input address">
+              <span class="input-label">Kirim ke</span>
+              <input class="input-data-request"  type="text" placeholder="Masukkan alamat">
             </label>
             <label class="item item-input item-stacked-label input-request">
-              <span class="input-label">Payment</span>
+              <span class="input-label">Pembayaran</span>
               <ion-radio class="radio-input" ng-model="choice" ng-value="'A'">Transfer</ion-radio>
-              <ion-radio class="radio-input" ng-model="choice" ng-value="'B'">Cash on Delivery</ion-radio>
+              <ion-radio class="radio-input" ng-model="choice" ng-value="'B'">Bayar Ditempat</ion-radio>
             </label>
           </div>
           <div class="button-cool">
             <button class="button background-blue button-round" ng-click="closeModal()">
-              Cancel
+              Batal
             </button>
             <button class="button background-blue button-round" >
-              Order
+              Pesan
             </button>
           </div>
         </div>
@@ -138,7 +138,7 @@
   <!-- STICKY BUTTON BOTTOM -->
   <ion-footer-bar class="background-blue" style="height:50px;">
     <button class="button button-large button-full background-blue font-white button-bottom" style="margin-top:5px; font-size:24px; font-family:SourceSansPro;" ng-click="modal.show()">
-      REQUEST
+      PESAN
     </button>
   </ion-footer-bar>
 </ion-view>

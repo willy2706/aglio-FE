@@ -8,7 +8,7 @@
   <ion-nav-bar class="bar-positive grey-bar" >
     <ion-nav-title>
     <a class="button icon-left ion-ios-arrow-left button-clear button-dark" ng-click="gomain()"></a>
-    <h1 class="title" style="text-align: center; font-family: LatoLight; color: #242a34; font-size: 22px;">Share Recipe</h1>
+    <h1 class="title" style="text-align: center; font-family: LatoLight; color: #242a34; font-size: 22px;">Berbagi Resep</h1>
     </ion-nav-title>
   </ion-nav-bar>
 
@@ -26,19 +26,19 @@
 
     <div class="list content-form">
       <label class="item item-input">
-        <span class="input-label">Name</span>
+        <span class="input-label">Judul Resep</span>
         <input type="text" class="border-input">
       </label>
       <label class="item item-input">
-        <span class="input-label">Duration</span>
+        <span class="input-label">Durasi</span>
         <input type="text">
       </label>
       <label class="item item-input item-stacked-label">
-        <span class="input-label">Ingredients</span>
+        <span class="input-label">Bahan-bahan</span>
         <textarea class="input-ingredients" type="text"></textarea>
       </label>
       <label class="item item-input item-stacked-label">
-        <span class="input-label">Directions</span>
+        <span class="input-label">Cara Masak</span>
         <textarea type="text"></textarea>
       </label>
     </div>
@@ -49,12 +49,12 @@
     <ion-modal-view>
       <ion-content class="padding background-gray">
         <div class="feedback">
-          <img class="image-modal" src="img/garbage.png" alt="">
-          <h4>Congratulations!</h4>
-          <p class="words-feedback">You've just been reducing food waste.</p>
+          <img class="image-modal" src="img/food.png" alt="">
+          <h4>Hore!</h4>
+          <p class="words-feedback">Kamu baru saja membantu mengolah makanan sisa.</p>
           <div class="button-cool">
-            <button class="button background-blue button-round" ng-click = "cool()">
-              Cool!
+            <button class="button background-blue button-round" ng-click = "closeModal()">
+              Hebat!
             </button>
           </div>
         </div>
@@ -64,8 +64,8 @@
 
   <!-- STICKY BUTTON BOTTOM -->
   <ion-footer-bar class="background-blue" style="height:50px;">
-    <button class="button button-large button-full background-blue font-white button-bottom" style="margin-top:5px; font-size:24px; font-family:SourceSansPro;" ng-click="share()">
-      SHARE
+    <button class="button button-large button-full background-blue font-white button-bottom" style="margin-top:5px; font-size:24px; font-family:SourceSansPro;" ng-click="openModal()">
+      BAGIKAN
     </button>
   </ion-footer-bar>
 </ion-view>
