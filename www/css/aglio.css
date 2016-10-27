@@ -100,6 +100,11 @@
   width: 360px;
 }
 
+.share-recipe {
+  height: 100px;
+  width: 360px;
+}
+
 .request-photo {
   height: 100px;
   width: 360px;
@@ -344,4 +349,9 @@ p.price-request {
 
 p.exp-date-request {
   color: #76aaf7;
+}
+
+.input-ingredients {
+  height: 70px;
+  border-width: 1px;
 }

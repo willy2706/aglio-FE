@@ -75,6 +75,11 @@ angular.module('starter', ['firebase','ionic', 'starter.controllers', 'starter.s
     templateUrl: 'templates/aglio/share-food.html',
     controller: 'ShareFoodCtrl'
   })
+  .state('share-recipe', {
+    url: '/share-recipe',
+    templateUrl: 'templates/aglio/share-recipe.html',
+    controller: 'ShareRecipeCtrl'
+  })
   .state('request-food', {
     url: '/request-food',
     templateUrl: 'templates/aglio/request-food.html',

@@ -114,6 +114,46 @@ angular.module('starter.controllers', [])
     });
   })
 
+  .controller('ShareRecipeCtrl', function($scope, $firebaseObject, $firebaseArray, $ionicModal) {
+
+    var ref = firebase.database().ref().child("food");
+    var obj = $firebaseObject(ref);
+    console.log(obj);
+    var x;
+    firebase.database().ref().child("food").on('value', function(snap) {
+      var y = snap.val()
+      $scope.data = y;
+      console.log(y);
+    });
+
+    obj.$bindTo($scope, "data")
+
+    $ionicModal.fromTemplateUrl('modal-request-food.html', {
+      scope: $scope,
+      animation: 'slide-in-up'
+    }).then(function(modal) {
+      $scope.modal = modal;
+    });
+    $scope.openModal = function() {
+      $scope.modal.show();
+    };
+    $scope.closeModal = function() {
+      $scope.modal.hide();
+    };
+    // Cleanup the modal when we're done with it!
+    $scope.$on('$destroy', function() {
+      $scope.modal.remove();
+    });
+    // Execute action on hide modal
+    $scope.$on('modal.hidden', function() {
+      // Execute action
+    });
+    // Execute action on remove modal
+    $scope.$on('modal.removed', function() {
+      // Execute action
+    });
+  })
+
   .controller('RequestFoodCtrl', function($scope, $firebaseObject, $firebaseArray, $ionicModal) {
 
     var ref = firebase.database().ref().child("food");
