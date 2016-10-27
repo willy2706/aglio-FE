@@ -37,7 +37,7 @@ angular.module('starter.controllers', ['ionic.cloud'])
       $state.go('main')
     }
 
-    $scope.url = "img/rice-share.png";
+    $scope.url = "img/upload-image.png";
     var ipObj1 = {
       callback: function (val) {  //Mandatory
         var dateval = new Date(val);

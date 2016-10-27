@@ -28,40 +28,16 @@
             <input type="text" name="search" placeholder="Cari..">
           </div> -->
 
-          <ion-list>
-            <ion-item ng-repeat = "(key,value) in data">
-              <div ui-sref="request-food({id : key})">
-                <img src={{value.img_url}} height="75" width="75" class="image-home">
-                <div>
-                  {{value.title}}
-                </div>
-                <div class="desc-home">
-                  {{value.desc}}
-                </div>
-                <div class="price-home" ng-if="value.price!=0">
-                  {{value.price}}
-                </div>
-                <div class="price-home" ng-if="value.price==0">
-                  Free
-                </div>
-                <span am-time-ago="value.exp_date"></span>
-                <div class="expdate-home">
-                  Exp. {{value.exp_date | date: 'dd/MM/yyyy'}}
-                  <!--HH:mm:ssZ-->
-                </div>
-              </div>
-              <!--class="item-thumbnail-left"-->
-            </ion-item>
-          </ion-list>
+          
         </ion-scroll>
       </ion-tab>
 
       <ion-tab title="Dibagikan">
         <ion-scroll direction="y">
 
-          <div class="searchbar-home">
+          <!-- <div class="searchbar-home">
             <input type="text" name="search" placeholder="Cari..">
-          </div>
+          </div> -->
 
           <!-- <ion-list>
             <ion-item ng-repeat = "(key,value) in data">
@@ -88,6 +64,32 @@
 
             </ion-item>
           </ion-list> -->
+
+          <ion-list>
+            <ion-item ng-repeat = "(key,value) in data">
+              <div ui-sref="request-food({id : key})">
+                <img src={{value.img_url}} height="75" width="75" class="image-home">
+                <div>
+                  {{value.title}}
+                </div>
+                <div class="desc-home">
+                  {{value.desc}}
+                </div>
+                <div class="price-home" ng-if="value.price!=0">
+                  {{value.price}}
+                </div>
+                <div class="price-home" ng-if="value.price==0">
+                  Free
+                </div>
+                <span am-time-ago="value.exp_date"></span>
+                <div class="expdate-home">
+                  Exp. {{value.exp_date | date: 'dd/MM/yyyy'}}
+                  <!--HH:mm:ssZ-->
+                </div>
+              </div>
+              <!--class="item-thumbnail-left"-->
+            </ion-item>
+          </ion-list>
         </ion-scroll>
       </ion-tab>
 
