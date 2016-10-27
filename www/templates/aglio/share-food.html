@@ -8,7 +8,7 @@
   <ion-nav-bar class="bar-positive grey-bar" >
     <ion-nav-title>
     <a class="button icon-left ion-ios-arrow-left button-clear button-dark" ng-click="gomain()"></a>
-    <h1 class="title" style="text-align: center; font-family: LatoLight; color: #242a34; font-size: 22px;">Share Food</h1>
+    <h1 class="title" style="text-align: center; font-family: LatoLight; color: #242a34; font-size: 22px;">Berbagi Makanan</h1>
     </ion-nav-title>
   </ion-nav-bar>
 
@@ -26,23 +26,23 @@
 
     <div class="list content-form">
       <label class="item item-input">
-        <span class="input-label">Name</span>
+        <span class="input-label">Nama</span>
         <input type="text" class="border-input" ng-model="sharefood.title" required>
       </label>
       <label class="item item-input">
-        <span class="input-label">Type</span>
+        <span class="input-label">Tipe</span>
         <input type="text" ng-model="sharefood.type" required>
       </label>
       <label class="item item-input">
-        <span class="input-label" >Expired Date</span>
+        <span class="input-label" >Kadaluwarsa</span>
         <input type="text" ng-click="openDatePicker()" ng-model="exp_datedisplay">
       </label>
       <label class="item item-input">
-        <span class="input-label" >Price</span>
+        <span class="input-label" >Harga</span>
         <input type="number" ng-model="sharefood.price">
       </label>
       <label class="item item-input">
-        <span class="input-label" >Quantity</span>
+        <span class="input-label" >Jumlah</span>
         <input type="number" ng-model="sharefood.qty" min="1">
       </label>
       <label class="item item-input">
@@ -50,7 +50,7 @@
         <input type="text" ng-model="sharefood.desc">
       </label>
       <label class="item item-input">
-        <span class="input-label">Pick-up Location</span>
+        <span class="input-label">Lokasi Jemput</span>
         <input type="text" ng-model="sharefood.location">
       </label>
     </div>
@@ -62,11 +62,11 @@
       <ion-content class="padding background-gray">
         <div class="feedback">
           <img class="image-modal" src="img/garbage.png" alt="">
-          <h4>Congratulations!</h4>
-          <p class="words-feedback">You've just been reducing food waste.</p>
+          <h4>Selamat!</h4>
+          <p class="words-feedback">Kamu baru saja membantu mengurangi sampah makanan.</p>
           <div class="button-cool">
             <button class="button background-blue button-round" ng-click = "cool()">
-              Cool!
+              Keren!
             </button>
           </div>
         </div>
@@ -77,7 +77,7 @@
   <!-- STICKY BUTTON BOTTOM -->
   <ion-footer-bar class="background-blue" style="height:50px;">
     <button class="button button-large button-full background-blue font-white button-bottom" style="margin-top:5px; font-size:24px; font-family:SourceSansPro;" ng-click="share()">
-      SHARE
+      BAGIKAN
     </button>
   </ion-footer-bar>
 </ion-view>
