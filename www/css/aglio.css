@@ -106,13 +106,13 @@
 }
 
 .request-photo {
-  height: 100px;
+  height: 200px;
   width: 360px;
 }
 
 .photo-area-request {
   background-color: #f2f4f7;
-  height: 100px;
+  height: 200px;
   z-index: 999;
 }
 
@@ -155,7 +155,7 @@
   padding: 25px;
   font-size: 40px;
   position: fixed;
-  top: 70px; /* Adjust height */
+  top: 160px; /* Adjust height */
   right: 7%; /* Adjust position */
   z-index: 9999;
   background-color: #7b7b7b;
@@ -254,7 +254,7 @@
 }
 
 .content-tabs-detail {
-  margin-top: 80px;
+  margin-top: 25px;
   font-family: SourceSansPro;
 }
 
@@ -354,4 +354,23 @@ p.exp-date-request {
 .input-ingredients {
   height: 70px;
   border-width: 1px;
+}
+
+.ionic_datepicker_popup {
+  $date-picker-colour: #76aaf7;
+
+  .selected_date_full,
+  .selected_date,
+  .popup-buttons .button {
+    background-color: #76aaf7 !important;
+  }
+  .month_select,
+  .year_select,
+  .today {
+    border-color: #76aaf7 !important;
+  }
+  .item-select:after,
+  .button-clear {
+    color: #76aaf7 !important;
+  }
 }

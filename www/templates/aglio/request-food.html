@@ -8,7 +8,7 @@
 
   <ion-nav-bar class="bar-positive grey-bar" >
     <ion-nav-title>
-    <a class="button icon-left ion-ios-arrow-left button-clear button-dark"></a>
+    <a class="button icon-left ion-ios-arrow-left button-clear button-dark" ng-click="gomain()"></a>
       <h1 class="title" style="text-align: center; font-family: LatoLight; color: #242a34; font-size: 22px;">{{data.title}}</h1>
     </ion-nav-title>
   </ion-nav-bar>
@@ -16,17 +16,14 @@
   <ion-content class="has-footer">
     <div class="photo-area-request">
     <img class="request-photo" src="{{data.img_url}}" alt="">
-      <div class="float-photo-user">
-        <span class="height-fix">
-          <a class="content">
-            <i class="ion-android-person"> </i>
-          </a>
-        </span>
+      <div class="float-photo-user" style="background: url({{usrimg}});-webkit-background-size: cover;">
+
       </div>
     </div>
 
     <ion-tabs class="tabs-striped tabs-color-assertive tabs-request">
-      <ion-tab title="Detail">
+      <div></div>
+      <ion-tab title="Detail" >
         <!-- Tab 1 content -->
         <div class="list content-tabs-detail">
           <p class="text-detail">{{data.desc}}</p>
@@ -40,7 +37,7 @@
           </div>
           <div class="row tabs-detail">
             <div class="col">Price</div>
-            <div class="col font-blue" ng-if="data.price!=0">{{data.price}}</div>
+            <div class="col font-blue" ng-if="data.price!=0">IDR {{data.price}}</div>
             <div class="col font-blue" ng-if="data.price==0">Free</div>
           </div>
           <div class="row tabs-detail">
@@ -104,15 +101,16 @@
       <ion-content class="padding">
         <div class="request">
           <div class="list">
-            <div class="item item-avatar" style="border-width:0px;"">
+            <div class="item item-avatar" style="border-width:0px;">
               <img src="img/fresh-apples-icon.png">
               <h2 class="discussion-name">Fresh Apples</h2>
-              <p class="price-request">(Price)</p>
-              <p class="exp-date-request">(Exp. Date)</p>
+              <p class="price-request" ng-if="data.price!=0">IDR {{data.price}}</p>
+              <p class="price-request" ng-if="data.price==0">Free</p>
+              <p class="exp-date-request">{{data.exp_date | date: 'dd/MM/yyyy'}}</p>
             </div>
             <label class="item item-input item-stacked-label input-request">
               <span class="input-label">Quantity</span>
-              <input class="input-data-request" type="number" placeholder="Input number">
+              <input class="input-data-request" type="number" placeholder="Input number" max = "{{data.qty}}">
             </label>
             <label class="item item-input item-stacked-label input-request">
               <span class="input-label">Delivery to</span>
@@ -125,10 +123,10 @@
             </label>
           </div>
           <div class="button-cool">
-            <button class="button background-blue button-round">
+            <button class="button background-blue button-round" ng-click="closeModal()">
               Cancel
             </button>
-            <button class="button background-blue button-round">
+            <button class="button background-blue button-round" >
               Order
             </button>
           </div>

@@ -7,8 +7,10 @@ angular.module('starter.controllers', ['ionic.cloud'])
       firebase.database().ref().child('token').set({
         token : t.token
       })
-      alert(t.token)
+//      alert(t.token)
     });
+        console.log(angular.element('.tab-nav.tabs').css('position'))
+        console.log(angular.element('.tab-nav.tabs').css('top'))
     $scope.$on('cloud:push:notification', function(event, data) {
       var msg = data.message;
       alert(msg.title + ': ' + msg.text);
@@ -171,12 +173,33 @@ angular.module('starter.controllers', ['ionic.cloud'])
     });
   })
 
-  .controller('RequestFoodCtrl', function($scope, $firebaseObject, $firebaseArray, $ionicModal, $stateParams) {
+  .controller('RequestFoodCtrl', function($scope, $firebaseObject, $firebaseArray, $ionicModal, $stateParams, $state) {
+    $scope.gomain = function () {
+      angular.element('.tab-nav.tabs').css('position','absolute')
+      angular.element('.tab-nav.tabs').css('top','44px')
+      $state.go('main')
+    }
+//
+//    angular.element('.tab-nav.tabs').css('padding-top','20px')
+//    angular.element('.tab-nav.tabs').css('padding-bottom','-20px')
+//    angular.element('.tab-nav.tabs').css('margin-top','20px')
+//    angular.element('.tab-nav.tabs').css('margin-bottom','-20px')
+    console.log(angular.element('.tab-nav.tabs').css('position'))
+    console.log(angular.element('.tab-nav.tabs').css('top'))
+    angular.element('.tab-nav.tabs').css('position','relative')
+    angular.element('.tab-nav.tabs').css('top','0px')
+
+//    var fbse = firebase
     var id = $stateParams.id;
     firebase.database().ref().child("food").child(id).on('value', function(snap) {
       var y = snap.val()
       $scope.data = y;
-      console.log(y);
+      console.log(y.user);
+      firebase.database().ref().child("users").child(y.user).on('value', function(snap1) {
+        var z = snap1.val();
+        console.log(z.img)
+        $scope.usrimg = z.img
+      })
     });
     $ionicModal.fromTemplateUrl('modal-request-food.html', {
       scope: $scope,
