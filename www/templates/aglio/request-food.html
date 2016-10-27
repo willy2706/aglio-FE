@@ -95,14 +95,36 @@
   <!-- MODAL -->
   <script id="modal-request-food.html" type="text/ng-template">
     <ion-modal-view>
-      <ion-content class="padding background-gray">
-        <div class="feedback">
-          <img class="image-modal" src="img/garbage.png" alt="">
-          <h4>Congratulations!</h4>
-          <p class="words-feedback">You've just been reducing food waste.</p>
+      <ion-header-bar class="header-modal-request">
+        <h1 class="title modal-title" style="text-align:center; color: #555656; font-family: LatoLight;">Request This Item</h1>
+      </ion-header-bar>
+      <ion-content class="padding">
+        <div class="request">
+          <div class="list">
+            <div class="item item-avatar" style="border-width:0px;"">
+              <img src="img/fresh-apples-icon.png">
+              <h2 class="discussion-name">Fresh Apples</h2>
+            </div>
+            <label class="item item-input item-stacked-label input-request">
+              <span class="input-label">Quantity</span>
+              <input class="input-data-request" type="number" placeholder="Input number">
+            </label>
+            <label class="item item-input item-stacked-label input-request">
+              <span class="input-label">Delivery to</span>
+              <input class="input-data-request"  type="text" placeholder="Input address">
+            </label>
+            <label class="item item-input item-stacked-label input-request">
+              <span class="input-label">Payment</span>
+              <ion-radio class="radio-input" ng-model="choice" ng-value="'A'">Transfer</ion-radio>
+              <ion-radio class="radio-input" ng-model="choice" ng-value="'B'">Cash on Delivery</ion-radio>
+            </label>
+          </div>
           <div class="button-cool">
             <button class="button background-blue button-round">
-              Cool!
+              Cancel
+            </button>
+            <button class="button background-blue button-round">
+              Order
             </button>
           </div>
         </div>

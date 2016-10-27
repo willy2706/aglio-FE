@@ -307,3 +307,23 @@ input.input-text-discussion {
   border-width: 0px;
   padding: 1px;
 }
+
+.header-modal-request {
+  background-color: #f2f4f7;
+}
+
+.input-request {
+  border-width: 0px;
+}
+
+.input-data-request {
+  background-color: #f2f4f7;
+}
+
+.radio-input {
+  border-width: 0px;
+}
+
+.radio-content {
+  background-color: white;
+}
