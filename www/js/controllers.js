@@ -1,5 +1,18 @@
-angular.module('starter.controllers', [])
-  .controller('AglioMainCtrl', function($scope, $firebaseObject, $firebaseArray, $state) {
+angular.module('starter.controllers', ['ionic.cloud'])
+  .controller('AglioMainCtrl', function($scope, $firebaseObject, $firebaseArray, $state,  $ionicPush) {
+    $ionicPush.register().then(function(t) {
+      return $ionicPush.saveToken(t);
+    }).then(function(t) {
+      console.log('Token saved:', t.token);
+      firebase.database().ref().child('token').set({
+        token : t.token
+      })
+      alert(t.token)
+    });
+    $scope.$on('cloud:push:notification', function(event, data) {
+      var msg = data.message;
+      alert(msg.title + ': ' + msg.text);
+    });
     var ref = firebase.database().ref().child("food");
     var obj = $firebaseObject(ref);
     console.log(obj);
@@ -21,6 +34,8 @@ angular.module('starter.controllers', [])
     $scope.gomain = function() {
       $state.go('main')
     }
+
+    $scope.url = "img/rice-share.png";
     var ipObj1 = {
       callback: function (val) {  //Mandatory
         var dateval = new Date(val);
@@ -56,7 +71,8 @@ angular.module('starter.controllers', [])
     $scope.photo = function() {
         Camera.getPicture({
         quality: 75,
-        targetWidth: 720,
+        targetWidth: 750,
+        targetHeight: 260,
         correctOrientation: true,
         saveToPhotoAlbum: false,
         destinationType: navigator.camera.DestinationType.DATA_URL
@@ -77,6 +93,7 @@ angular.module('starter.controllers', [])
       var id = Math.floor(n / -1000);
       $scope.sharefood.created = n;
       $scope.sharefood.img_url = $scope.url == null ? "" : $scope.url;
+      $scope.sharefood.status = "NONE";
       firebase.database().ref().child('food').child(id).set($scope.sharefood);
       $scope.modal.show();
     };
@@ -154,20 +171,13 @@ angular.module('starter.controllers', [])
     });
   })
 
-  .controller('RequestFoodCtrl', function($scope, $firebaseObject, $firebaseArray, $ionicModal) {
-
-    var ref = firebase.database().ref().child("food");
-    var obj = $firebaseObject(ref);
-    console.log(obj);
-    var x;
-    firebase.database().ref().child("food").on('value', function(snap) {
+  .controller('RequestFoodCtrl', function($scope, $firebaseObject, $firebaseArray, $ionicModal, $stateParams) {
+    var id = $stateParams.id;
+    firebase.database().ref().child("food").child(id).on('value', function(snap) {
       var y = snap.val()
       $scope.data = y;
       console.log(y);
     });
-
-    obj.$bindTo($scope, "data")
-
     $ionicModal.fromTemplateUrl('modal-request-food.html', {
       scope: $scope,
       animation: 'slide-in-up'
@@ -241,7 +251,7 @@ angular.module('starter.controllers', [])
     $scope.getPhoto = function() {
       Camera.getPicture({
         quality: 75,
-        targetWidth: 720,
+        targetWidth: 360,
         correctOrientation: true,
         saveToPhotoAlbum: false
       }).then(function (imageURI) {

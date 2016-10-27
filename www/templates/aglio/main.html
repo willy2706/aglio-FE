@@ -29,7 +29,7 @@
 
           <ion-list>
             <ion-item ng-repeat = "(key,value) in data">
-              <div>
+              <div ui-sref="request-food({id : key})">
                 <img src={{value.img_url}} height="75" width="75" class="image-home">
                 <div>
                   {{value.title}}

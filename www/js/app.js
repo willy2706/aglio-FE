@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['firebase','ionic', 'starter.controllers', 'starter.services' , 'starter.directives', 'ng-mfb', 'ionic-datepicker'])
+angular.module('starter', ['firebase','ionic', 'starter.controllers', 'ionic.cloud','starter.services' , 'starter.directives', 'ng-mfb', 'ionic-datepicker'])
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -50,6 +50,27 @@ angular.module('starter', ['firebase','ionic', 'starter.controllers', 'starter.s
     };
     ionicDatePickerProvider.configDatePicker(datePickerObj);
   })
+
+
+.config(function($ionicCloudProvider) {
+  $ionicCloudProvider.init({
+    "core": {
+      "app_id": "52b92062"
+    },
+     "push": {
+       "sender_id": "507060939680",
+       "pluginConfig": {
+         "ios": {
+           "badge": true,
+           "sound": true
+         },
+         "android": {
+           "iconColor": "#343434"
+         }
+       }
+     }
+  });
+})
 .config(function($stateProvider, $urlRouterProvider) {
 
   // Ionic uses AngularUI Router which uses the concept of states
@@ -81,7 +102,7 @@ angular.module('starter', ['firebase','ionic', 'starter.controllers', 'starter.s
     controller: 'ShareRecipeCtrl'
   })
   .state('request-food', {
-    url: '/request-food',
+    url: '/request-food/:id',
     templateUrl: 'templates/aglio/request-food.html',
     controller: 'RequestFoodCtrl'
   })

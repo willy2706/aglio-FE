@@ -20,6 +20,10 @@ angular.module('starter.services', ['ng-mfb'])
   }
 }])
 
+.factory('UserID', function() {
+  return 123456;
+})
+
 .factory('Chats', function() {
   // Might use a resource here that returns a JSON array
 
