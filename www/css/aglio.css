@@ -356,6 +356,11 @@ p.exp-date-request {
   border-width: 1px;
 }
 
+.input-content {
+  height: 300px;
+  border-width: 1px;
+}
+
 .ionic_datepicker_popup {
   $date-picker-colour: #76aaf7;
 
