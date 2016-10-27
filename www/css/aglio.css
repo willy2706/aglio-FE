@@ -387,3 +387,14 @@ p.exp-date-request {
 .item-icon-left .icon, .item-icon-right .icon {
   font-size: 18px;
 }
+
+p.read-more-tips {
+  color: #76aaf7;
+  font-size: 12px;
+  margin-top: 0px;
+}
+
+p.date-tips {
+  color: #aeaeae;
+  font-size: 12px;
+}
