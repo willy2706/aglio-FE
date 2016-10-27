@@ -147,7 +147,7 @@ angular.module('starter.controllers', ['ionic.cloud'])
 
     obj.$bindTo($scope, "data")
 
-    $ionicModal.fromTemplateUrl('modal-request-food.html', {
+    $ionicModal.fromTemplateUrl('modal-request-recipe.html', {
       scope: $scope,
       animation: 'slide-in-up'
     }).then(function(modal) {
