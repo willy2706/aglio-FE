@@ -1,25 +1,57 @@
 angular.module('starter.controllers', [])
-  .controller('AglioMainCtrl', function($scope, $firebaseObject, $firebaseArray) {
+  .controller('AglioMainCtrl', function($scope, $firebaseObject, $firebaseArray, $state) {
     var ref = firebase.database().ref().child("food");
     var obj = $firebaseObject(ref);
     console.log(obj);
     var x;
     firebase.database().ref().child("food").on('value', function(snap) {
       var y = snap.val()
-      var ordered = {};
-      Object.keys(y).sort().forEach(function(key) {
-      console.log(key)
-        ordered[key] = y[key];
-      });
-      console.log(ordered)
       $scope.data = y;
       console.log(y);
     });
 
     obj.$bindTo($scope, "data")
+
+    $scope.sharefood = function() {
+      $state.go('share-food');
+    }
   })
 
-  .controller('ShareFoodCtrl', function($state, $scope, $firebaseObject, $firebaseArray, $ionicModal, Camera) {
+  .controller('ShareFoodCtrl', function($state, $scope, $firebaseObject, $firebaseArray, $ionicModal, Camera, ionicDatePicker) {
+    $scope.gomain = function() {
+      $state.go('main')
+    }
+    var ipObj1 = {
+      callback: function (val) {  //Mandatory
+        var dateval = new Date(val);
+        var theyear=dateval.getFullYear()
+        var themonth=dateval.getMonth()+1
+        var thetoday=dateval.getDate()
+        $scope.exp_datedisplay = theyear+"/"+themonth+"/"+thetoday
+        $scope.sharefood.exp_date = val
+        console.log('Return value from the datepicker popup is : ' + val, new Date(val));
+      },
+      disabledDates: [            //Optional
+        new Date(2016, 2, 16),
+        new Date(2015, 3, 16),
+        new Date(2015, 4, 16),
+        new Date(2015, 5, 16),
+        new Date('Wednesday, August 12, 2015'),
+        new Date("08-16-2016"),
+        new Date(1439676000000)
+      ],
+      from: new Date(2012, 1, 1), //Optional
+      to: new Date(2016, 10, 30), //Optional
+      inputDate: new Date(),      //Optional
+      mondayFirst: true,          //Optional
+      disableWeekdays: [0],       //Optional
+      closeOnSelect: false,       //Optional
+      templateType: 'popup'       //Optional
+    };
+
+    $scope.openDatePicker = function(){
+      ionicDatePicker.openDatePicker(ipObj1);
+    };
     $scope.showinput = false;
     $scope.photo = function() {
         Camera.getPicture({
@@ -47,9 +79,6 @@ angular.module('starter.controllers', [])
       $scope.sharefood.img_url = $scope.url == null ? "" : $scope.url;
       firebase.database().ref().child('food').child(id).set($scope.sharefood);
       $scope.modal.show();
-      //data:image/png;base64,
-      //var url = [$scope.url];
-      //var bl = new Blob(url, {type: 'image/jpeg'})
     };
 
     $ionicModal.fromTemplateUrl('modal-share-food.html', {

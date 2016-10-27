@@ -7,7 +7,7 @@
   <!--</ion-header-bar>-->
   <ion-nav-bar class="bar-positive grey-bar" >
     <ion-nav-title>
-    <a class="button icon-left ion-ios-arrow-left button-clear button-dark"></a>
+    <a class="button icon-left ion-ios-arrow-left button-clear button-dark" ng-click="gomain()"></a>
     <h1 class="title" style="text-align: center; font-family: LatoLight; color: #242a34; font-size: 22px;">Share Food</h1>
     </ion-nav-title>
   </ion-nav-bar>
@@ -27,15 +27,15 @@
     <div class="list content-form">
       <label class="item item-input">
         <span class="input-label">Name</span>
-        <input type="text" class="border-input" ng-model="sharefood.title">
+        <input type="text" class="border-input" ng-model="sharefood.title" required>
       </label>
       <label class="item item-input">
         <span class="input-label">Type</span>
-        <input type="text" ng-model="sharefood.type">
+        <input type="text" ng-model="sharefood.type" required>
       </label>
       <label class="item item-input">
         <span class="input-label" >Expired Date</span>
-        <input type="text" ng-model="sharefood.exp_date">
+        <input type="text" ng-click="openDatePicker()" ng-model="exp_datedisplay">
       </label>
       <label class="item item-input">
         <span class="input-label" >Price</span>
@@ -43,7 +43,7 @@
       </label>
       <label class="item item-input">
         <span class="input-label" >Quantity</span>
-        <input type="number" ng-model="sharefood.qty">
+        <input type="number" ng-model="sharefood.qty" min="1">
       </label>
       <label class="item item-input">
         <span class="input-label" >Info</span>
