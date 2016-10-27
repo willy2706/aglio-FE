@@ -383,3 +383,7 @@ p.exp-date-request {
 .tabs-fullwidth .tab-item {
   max-width: 100%;
 }
+
+.item-icon-left .icon, .item-icon-right .icon {
+  font-size: 18px;
+}
