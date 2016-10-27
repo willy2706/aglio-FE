@@ -327,3 +327,11 @@ input.input-text-discussion {
 .radio-content {
   background-color: white;
 }
+
+p.price-request {
+  color: #d95757;
+}
+
+p.exp-date-request {
+  color: #76aaf7;
+}
