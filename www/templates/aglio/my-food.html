@@ -8,24 +8,25 @@
 
 
   <ion-content>
-    <nav mfb-menu position="br" effect="slidein-spring" active-icon="ion-ios-close-empty" resting-icon="ion-ios-plus-empty" toggling-method="click">
+    <!-- <nav mfb-menu position="br" effect="slidein-spring" active-icon="ion-ios-close-empty" resting-icon="ion-ios-plus-empty" toggling-method="click">
       <button mfb-button icon="ion-document-text"></button>
       <button mfb-button icon="ion-clipboard"></button>
       <button mfb-button icon="ion-android-restaurant" ng-click="sharefood()"></button>
-    </nav>
+    </nav> -->
     <ion-nav-bar class="bar-positive grey-bar" >
       <ion-nav-title>
-        <h1 class="title" style="text-align: center; font-family: LatoLight; color: #242a34; font-size: 22px;">AGLIO</h1>
-        <a class="button button-icon button-dark icon ion-ios-nutrition-outline" style="color:black; font-size:20px;"></a>
+        <a class="button icon-left ion-ios-arrow-left button-clear button-dark" ng-click="gomain()"></a>
+        <h1 class="title" style="text-align: center; font-family: LatoLight; color: #242a34; font-size: 22px;">Makanan Saya</h1>
+        <!-- <a class="button button-icon button-dark icon ion-ios-nutrition-outline" style="color:black; font-size:20px;"></a> -->
       </ion-nav-title>
     </ion-nav-bar>
-    <ion-tabs class="tabs-striped tabs-top tabs-color-light tabs-main">
-      <ion-tab title="Cari Makanan">
+    <ion-tabs class="tabs-striped tabs-top tabs-color-assertive tabs-fullwidth tabs-main">
+      <ion-tab title="Pesanan">
         <ion-scroll direction="y">
 
-          <div class="searchbar-home">
+          <!-- <div class="searchbar-home">
             <input type="text" name="search" placeholder="Cari..">
-          </div>
+          </div> -->
 
           <ion-list>
             <ion-item ng-repeat = "(key,value) in data">
@@ -55,7 +56,7 @@
         </ion-scroll>
       </ion-tab>
 
-      <ion-tab title="Resep">
+      <ion-tab title="Dibagikan">
         <ion-scroll direction="y">
 
           <div class="searchbar-home">
@@ -89,13 +90,7 @@
           </ion-list> -->
         </ion-scroll>
       </ion-tab>
-      <ion-tab title="Tips">
-        <ion-scroll direction="y">
-          <div class="searchbar-home">
-            <input type="text" name="search" placeholder="Cari..">
-          </div>
-        </ion-scroll>
-      </ion-tab>
+
        <!--  <div class="col">
           <div style="color:#d95757">
             Find Food

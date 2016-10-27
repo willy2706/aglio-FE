@@ -111,6 +111,11 @@ angular.module('starter', ['firebase','ionic', 'starter.controllers', 'ionic.clo
     templateUrl: 'templates/aglio/request-food.html',
     controller: 'RequestFoodCtrl'
   })
+  .state('my-food', {
+    url: '/my-food',
+    templateUrl: 'templates/aglio/my-food.html',
+    controller: 'MyFoodCtrl'
+  })
   .state('expenses', {
     url: '/expenses',
     templateUrl: 'templates/expenses.html',
