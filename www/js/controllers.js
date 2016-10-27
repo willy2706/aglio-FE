@@ -267,6 +267,36 @@ angular.module('starter.controllers', ['ionic.cloud'])
     });
   })
 
+.controller('MyFoodCtrl', function($scope, $firebaseObject, $firebaseArray, $state,  $ionicPush) {
+    $ionicPush.register().then(function(t) {
+      return $ionicPush.saveToken(t);
+    }).then(function(t) {
+      console.log('Token saved:', t.token);
+      firebase.database().ref().child('token').set({
+        token : t.token
+      })
+//      alert(t.token)
+    });
+        console.log(angular.element('.tab-nav.tabs').css('position'))
+        console.log(angular.element('.tab-nav.tabs').css('top'))
+    $scope.$on('cloud:push:notification', function(event, data) {
+      var msg = data.message;
+      alert(msg.title + ': ' + msg.text);
+    });
+    var ref = firebase.database().ref().child("food");
+    var obj = $firebaseObject(ref);
+    console.log(obj);
+    var x;
+    firebase.database().ref().child("food").on('value', function(snap) {
+      var y = snap.val()
+      $scope.data = y;
+      console.log(y);
+    });
+
+    obj.$bindTo($scope, "data")
+
+  })
+
 .controller('DashCtrl', function($scope) {})
 
 .controller('ChatsCtrl', function($scope, Chats) {

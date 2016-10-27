@@ -379,3 +379,7 @@ p.exp-date-request {
     color: #76aaf7 !important;
   }
 }
+
+.tabs-fullwidth .tab-item {
+  max-width: 100%;
+}
