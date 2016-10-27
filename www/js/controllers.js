@@ -1,25 +1,26 @@
 angular.module('starter.controllers', [])
-  .controller('AglioMainCtrl', function($scope, $firebaseObject, $firebaseArray) {
+  .controller('AglioMainCtrl', function($scope, $firebaseObject, $firebaseArray, $state) {
     var ref = firebase.database().ref().child("food");
     var obj = $firebaseObject(ref);
     console.log(obj);
     var x;
     firebase.database().ref().child("food").on('value', function(snap) {
       var y = snap.val()
-      var ordered = {};
-      Object.keys(y).sort().forEach(function(key) {
-      console.log(key)
-        ordered[key] = y[key];
-      });
-      console.log(ordered)
       $scope.data = y;
       console.log(y);
     });
 
     obj.$bindTo($scope, "data")
+
+    $scope.sharefood = function() {
+      $state.go('share-food');
+    }
   })
 
   .controller('ShareFoodCtrl', function($state, $scope, $firebaseObject, $firebaseArray, $ionicModal, Camera) {
+    $scope.gomain = function() {
+      $state.go('main')
+    }
     $scope.showinput = false;
     $scope.photo = function() {
         Camera.getPicture({
@@ -47,9 +48,6 @@ angular.module('starter.controllers', [])
       $scope.sharefood.img_url = $scope.url == null ? "" : $scope.url;
       firebase.database().ref().child('food').child(id).set($scope.sharefood);
       $scope.modal.show();
-      //data:image/png;base64,
-      //var url = [$scope.url];
-      //var bl = new Blob(url, {type: 'image/jpeg'})
     };
 
     $ionicModal.fromTemplateUrl('modal-share-food.html', {
