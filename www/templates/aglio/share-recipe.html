@@ -15,6 +15,7 @@
   <ion-content fab-scroll-container class="has-footer">
     <div class="photo-area" ng-click="photo()">
     <img class="share-recipe" src="{{url}}" alt="">
+    <!--<img class="share-recipe" src="img/upload-image.png" alt="">-->
       <div class="float-button-aglio">
         <span class="height-fix">
           <a class="content">
@@ -26,11 +27,11 @@
     <div class="list content-form">
       <label class="item item-input">
         <span class="input-label">Judul Resep</span>
-        <input type="text" class="border-input" ng-model="sharerecipe.title">
+        <input type="text" class="border-input" placeholder="Nama masakan" ng-model="sharerecipe.title">
       </label>
       <label class="item item-input">
         <span class="input-label">Durasi</span>
-        <input type="number" ng-model="sharerecipe.time">
+        <input type="text" placeholder="Waktu" ng-model="sharerecipe.time">
       </label>
       <div class="item item-input item-stacked-label">
         <span class="input-label">Bahan-bahan</span>

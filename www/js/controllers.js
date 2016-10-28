@@ -186,6 +186,34 @@ angular.module('starter.controllers', ['ionic.cloud', 'textAngular'])
     firebase.database().ref().child('recipe').child(id).set($scope.sharerecipe);
     $scope.modal.show();
   };
+  $scope.url = "img/upload-image.png";
+  var ipObj1 = {
+    callback: function (val) {  //Mandatory
+      var dateval = new Date(val);
+      var theyear=dateval.getFullYear()
+      var themonth=dateval.getMonth()+1
+      var thetoday=dateval.getDate()
+      $scope.exp_datedisplay = theyear+"/"+themonth+"/"+thetoday
+      $scope.sharefood.exp_date = val
+      console.log('Return value from the datepicker popup is : ' + val, new Date(val));
+    },
+    disabledDates: [            //Optional
+      new Date(2016, 2, 16),
+      new Date(2015, 3, 16),
+      new Date(2015, 4, 16),
+      new Date(2015, 5, 16),
+      new Date('Wednesday, August 12, 2015'),
+      new Date("08-16-2016"),
+      new Date(1439676000000)
+    ],
+    from: new Date(2012, 1, 1), //Optional
+    to: new Date(2016, 10, 30), //Optional
+    inputDate: new Date(),      //Optional
+    mondayFirst: true,          //Optional
+    disableWeekdays: [0],       //Optional
+    closeOnSelect: false,       //Optional
+    templateType: 'popup'       //Optional
+  };
 
   $ionicModal.fromTemplateUrl('modal-share-recipe.html', {
     scope: $scope,
@@ -263,6 +291,7 @@ angular.module('starter.controllers', ['ionic.cloud', 'textAngular'])
     console.log(y);
     $scope.compiledIngredient = $sce.trustAsHtml($scope.data.ingredient);
     $scope.compiledDirection = $sce.trustAsHtml($scope.data.direction);
+    })
    firebase.database().ref().child("users").child(y.user).on('value', function(snap1) {
     var z = snap1.val();
     console.log(z.img)
@@ -293,12 +322,7 @@ angular.module('starter.controllers', ['ionic.cloud', 'textAngular'])
       // Execute action
     });
 //    console.log($scope.compiledtext)
-  });
-
-  $scope.gomain = function() {
-    $state.go('main')
-  }
-})
+  })
 
 .controller('ShareTipsCtrl', function(UserID, $state, taOptions, $scope, $firebaseObject, $firebaseArray, $ionicModal) {
   $scope.gomain = function () {
@@ -354,12 +378,101 @@ angular.module('starter.controllers', ['ionic.cloud', 'textAngular'])
   });
 })
 
-.controller('RequestFoodCtrl', function($scope, $firebaseObject, $firebaseArray, $ionicModal, $stateParams, $state) {
-  $scope.gomain = function () {
-    angular.element('.tab-nav.tabs').css('position','absolute')
-    angular.element('.tab-nav.tabs').css('top','44px')
-    $state.go('main')
-  }
+  .controller('TipsCtrl', function($scope, $firebaseObject, $firebaseArray, $ionicModal, $ionicPopover) {
+
+    var ref = firebase.database().ref().child("food");
+    var obj = $firebaseObject(ref);
+    console.log(obj);
+    var x;
+    firebase.database().ref().child("food").on('value', function(snap) {
+      var y = snap.val()
+      $scope.data = y;
+      console.log(y);
+    });
+
+    obj.$bindTo($scope, "data")
+
+    $ionicModal.fromTemplateUrl('modal-share-facebook.html', {
+      id: '1',
+      scope: $scope,
+      animation: 'slide-in-up'
+    }).then(function(modal) {
+      $scope.oModal1 = modal;
+    });
+
+    $ionicModal.fromTemplateUrl('modal-share-twitter.html', {
+      id: '2',
+      scope: $scope,
+      animation: 'slide-in-up'
+    }).then(function(modal) {
+      $scope.oModal2 = modal;
+    });
+
+    $scope.openModal = function(index) {
+      if (index == 1) $scope.oModal1.show();
+      else $scope.oModal2.show();
+    };
+
+    $scope.closeModal = function(index) {
+      if (index == 1) $scope.oModal1.hide();
+      else $scope.oModal2.hide();
+    };
+    // Cleanup the modal when we're done with it!
+    $scope.$on('modal.shown', function(event, modal) {
+      console.log('Modal ' + modal.id + ' is shown!');
+    });
+    // Execute action on hide modal
+    $scope.$on('modal.hidden', function(event, modal) {
+      console.log('Modal ' + modal.id + ' is hidden!');
+    });
+    // Execute action on remove modal
+    $scope.$on('$destroy', function() {
+      console.log('Destroying modals...');
+      $scope.oModal1.remove();
+      $scope.oModal2.remove();
+    });
+
+    // .fromTemplate() method
+    var template = '<ion-popover-view><ion-header-bar> <h1 class="title">My Popover Title</h1> </ion-header-bar> <ion-content> Hello! </ion-content></ion-popover-view>';
+
+    $scope.popover = $ionicPopover.fromTemplate(template, {
+      scope: $scope
+    });
+
+    // .fromTemplateUrl() method
+    $ionicPopover.fromTemplateUrl('my-popover.html', {
+      scope: $scope
+    }).then(function(popover) {
+      $scope.popover = popover;
+    });
+
+
+    $scope.openPopover = function($event) {
+      $scope.popover.show($event);
+    };
+    $scope.closePopover = function() {
+      $scope.popover.hide();
+    };
+    //Cleanup the popover when we're done with it!
+    $scope.$on('$destroy', function() {
+      $scope.popover.remove();
+    });
+    // Execute action on hidden popover
+    $scope.$on('popover.hidden', function() {
+      // Execute action
+    });
+    // Execute action on remove popover
+    $scope.$on('popover.removed', function() {
+      // Execute action
+    });
+  })
+
+  .controller('RequestFoodCtrl', function($scope, $firebaseObject, $firebaseArray, $ionicModal, $stateParams, $state) {
+    $scope.gomain = function () {
+      angular.element('.tab-nav.tabs').css('position','absolute')
+      angular.element('.tab-nav.tabs').css('top','44px')
+      $state.go('main')
+    }
 //
 //    angular.element('.tab-nav.tabs').css('padding-top','20px')
 //    angular.element('.tab-nav.tabs').css('padding-bottom','-20px')
@@ -407,6 +520,36 @@ angular.module('starter.controllers', ['ionic.cloud', 'textAngular'])
     // Execute action
   });
 })
+
+.controller('MyFoodCtrl', function($scope, $firebaseObject, $firebaseArray, $state,  $ionicPush) {
+    $ionicPush.register().then(function(t) {
+      return $ionicPush.saveToken(t);
+    }).then(function(t) {
+      console.log('Token saved:', t.token);
+      firebase.database().ref().child('token').set({
+        token : t.token
+      })
+//      alert(t.token)
+    });
+        console.log(angular.element('.tab-nav.tabs').css('position'))
+        console.log(angular.element('.tab-nav.tabs').css('top'))
+    $scope.$on('cloud:push:notification', function(event, data) {
+      var msg = data.message;
+      alert(msg.title + ': ' + msg.text);
+    });
+    var ref = firebase.database().ref().child("food");
+    var obj = $firebaseObject(ref);
+    console.log(obj);
+    var x;
+    firebase.database().ref().child("food").on('value', function(snap) {
+      var y = snap.val()
+      $scope.data = y;
+      console.log(y);
+    });
+
+    obj.$bindTo($scope, "data")
+
+  })
 
 .controller('MyFoodCtrl', function($scope, $firebaseObject, $firebaseArray, $state,  $ionicPush) {
     $ionicPush.register().then(function(t) {

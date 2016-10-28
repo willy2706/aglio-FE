@@ -27,31 +27,31 @@
     <div class="list content-form">
       <label class="item item-input">
         <span class="input-label">Nama</span>
-        <input type="text" class="border-input" ng-model="sharefood.title" required>
+        <input type="text" class="border-input" ng-model="sharefood.title" required placeholder="Nama makanan">
       </label>
       <label class="item item-input">
         <span class="input-label">Tipe</span>
-        <input type="text" ng-model="sharefood.type" required>
+        <input type="text" ng-model="sharefood.type" required placeholder="Tipe makanan">
       </label>
       <label class="item item-input">
         <span class="input-label" >Kadaluwarsa</span>
-        <input type="text" ng-click="openDatePicker()" ng-model="exp_datedisplay">
+        <input type="text" ng-click="openDatePicker()" ng-model="exp_datedisplay" placeholder="Tanggal">
       </label>
       <label class="item item-input">
         <span class="input-label" >Harga</span>
-        <input type="number" ng-model="sharefood.price">
+        <input type="number" ng-model="sharefood.price" placeholder="IDR">
       </label>
       <label class="item item-input">
         <span class="input-label" >Jumlah</span>
-        <input type="number" ng-model="sharefood.qty" min="1">
+        <input type="number" ng-model="sharefood.qty" min="1" placeholder="Jumlah">
       </label>
       <label class="item item-input">
         <span class="input-label" >Info</span>
-        <input type="text" ng-model="sharefood.desc">
+        <input type="text" ng-model="sharefood.desc" placeholder="Deskripsi">
       </label>
       <label class="item item-input">
         <span class="input-label">Lokasi Jemput</span>
-        <input type="text" ng-model="sharefood.location">
+        <input type="text" ng-model="sharefood.location" placeholder="Alamat">
       </label>
     </div>
   </ion-content>
