@@ -19,12 +19,9 @@
   color: grey;
 }
 
-.desc-tips {
-  font-size: 13px;
+.content-tips-tabs {
   word-wrap: break-word;
-  white-space: normal;
   font-family: SourceSansPro;
-  padding-top: 5px;
 }
 
 
@@ -576,8 +573,6 @@ p.exp-date-request {
 .item-icon-left .icon, .item-icon-right .icon {
   font-size: 18px;
 }
-<<<<<<< HEAD
-=======
 
 p.read-more-tips {
   color: #76aaf7;
@@ -613,4 +608,3 @@ h5.title.title-left {
 a:hover {
   color: white;
 }
->>>>>>> master
