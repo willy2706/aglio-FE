@@ -78,30 +78,31 @@ angular.module('starter', ['firebase','ionic', 'starter.controllers', 'ionic.clo
   }
 })
 
+.filter('limitHtml', function() {
+    return function(text, limit) {
+
+        var changedString = String(text).replace(/<[^>]+>/gm, '');
+        var length = changedString.length;
+
+        return changedString.length > limit ? changedString.substr(0, limit - 1) : changedString;
+    }
+})
+
 
 .filter('tipsFilter', function() {
   return function(input, search) {
     if (!input) return input;
-//    console.log(input)
-//    console.log(search)
     if (!search) return input;
-//    console.log("masuk")
     var expected = ('' + search).toLowerCase();
     var result = {};
     angular.forEach(input, function(value, key) {
       if (value !== null && typeof value.title !== "undefined") {
-//        console.log("ok1")
-//        console.log(key)
-//        console.log(value.title)
-//        console.log("ok")
         var sources = ('' + value.title).toLowerCase();
         if (sources.indexOf(expected) !== -1) {
           result[key] = value;
         }
       }
     });
-//    console.log("sebelum")
-//    console.log(result)
     return result;
   }
 })

@@ -1,5 +1,8 @@
 angular.module('starter.controllers', ['ionic.cloud', 'textAngular'])
-.controller('AglioMainCtrl', function($scope, $firebaseObject, $firebaseArray, $state,  $ionicPush) {
+.controller('AglioMainCtrl', function($scope, $firebaseObject, $firebaseArray, $state,  $ionicPush, $sce) {
+  $scope.sharetips = function() {
+    $state.go('share-tips')
+  }
   $scope.searchText = null;
   $ionicPush.register().then(function(t) {
     return $ionicPush.saveToken(t);
@@ -8,7 +11,6 @@ angular.module('starter.controllers', ['ionic.cloud', 'textAngular'])
     firebase.database().ref().child('token').set({
       token : t.token
     })
-//      alert(t.token)
   });
   $scope.$on('cloud:push:notification', function(event, data) {
     var msg = data.message;
@@ -27,6 +29,10 @@ angular.module('starter.controllers', ['ionic.cloud', 'textAngular'])
   firebase.database().ref().child("tips").on('value', function(snap) {
     var y = snap.val()
     $scope.tips = y;
+    angular.forEach($scope.tips, function(value, key) {
+      $scope.compiledtext = $sce.trustAsHtml(value.desc);
+      value.compiledtext = $scope.compiledtext
+    })
     console.log(y);
   });
 

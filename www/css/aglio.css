@@ -73,6 +73,10 @@
   font-family: SourceSansPro;
 }
 
+.content-sharetips {
+  width : 94%;
+}
+
 .searchbar-home {
   background-color: white;
   padding-left: 20px;
