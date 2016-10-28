@@ -1,22 +1,21 @@
 <ion-view style="background: white;">
   <ion-nav-bar class="bar-positive grey-bar" >
     <ion-nav-title>
-    <a class="button icon-left ion-ios-arrow-left button-clear button-dark" ng-click="gomain()"></a>
-    <h1 class="title" style="text-align: center; font-family: LatoLight; color: #242a34; font-size: 22px;">Berbagi Tips</h1>
+      <a class="button icon-left ion-ios-arrow-left button-clear button-dark" ng-click="gomain()"></a>
+      <h1 class="title" style="text-align: center; font-family: LatoLight; color: #242a34; font-size: 22px;">TIPS</h1>
     </ion-nav-title>
   </ion-nav-bar>
 
   <ion-content fab-scroll-container class="has-footer">
 
-    <div class="list content-form">
-      <label class="item item-input">
-        <span class="input-label">Judul</span>
-        <input type="text" class="border-input" ng-model="sharetips.title">
-      </label>
-      <label class="item item-input item-stacked-label">
-        <span class="input-label">Konten</span>
-        <div text-angular ng-model="sharetips.desc"></div>
-      </label>
+    <div class="container-tipsdetail">
+      <div class="title-tipsdetail">
+        {{data.title}}
+      </div>
+      <div class="date-tipsdetail">
+        {{data.created | date: 'dd/MM/yyyy HH:mm:ss'}}
+      </div>
+      <div class="content-tipsdetail" ng-bind-html="compiledtext"></div>
     </div>
   </ion-content>
 
@@ -40,7 +39,7 @@
 
   <!-- STICKY BUTTON BOTTOM -->
   <ion-footer-bar class="background-blue" style="height:50px;">
-    <button class="button button-large button-full background-blue font-white button-bottom" style="margin-top:5px; font-size:24px; font-family:SourceSansPro;" ng-click="share()">
+    <button class="button button-large button-full background-blue font-white button-bottom" style="margin-top:5px; font-size:24px; font-family:SourceSansPro;" ng-click="openModal()">
       BAGIKAN
     </button>
   </ion-footer-bar>

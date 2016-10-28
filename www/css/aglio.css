@@ -27,11 +27,52 @@
   padding-top: 5px;
 }
 
+
+.readmore-tips {
+  font-size: 13px;
+  word-wrap: break-word;
+  white-space: normal;
+  font-family: SourceSansPro;
+  padding-top: 5px;
+  color: #76aaf7;
+}
+
 .title-tips {
   font-weight: bold;
   font-size: 18px;
-  font-family: SourceSansProBold;
+  font-family: SourceSansPro;
 }
+
+.content-tipsdetail {
+  padding-top: 20px;
+  font-size: 17px;
+  word-wrap: break-word;
+  white-space: normal;
+  font-family: SourceSansPro;
+  padding-top: 5px;
+}
+
+.date-tipsdetail {
+  margin-top: 5px;
+  font-size: 13px;
+  word-wrap: break-word;
+  white-space: normal;
+  font-family: SourceSansPro;
+  color: grey;
+}
+
+.container-tipsdetail {
+   margin-top: 20px;
+   margin-left: 20px;
+}
+.title-tipsdetail {
+  word-wrap: break-word;
+  white-space: normal;
+  font-weight: bold;
+  font-size: 20px;
+  font-family: SourceSansPro;
+}
+
 .searchbar-home {
   background-color: white;
   padding-left: 20px;

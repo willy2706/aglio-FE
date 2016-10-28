@@ -9,7 +9,7 @@
 
   <ion-content>
     <nav mfb-menu position="br" effect="slidein-spring" active-icon="ion-ios-close-empty" resting-icon="ion-ios-plus-empty" toggling-method="click">
-      <button mfb-button icon="ion-document-text"></button>
+      <button mfb-button icon="ion-document-text" ng-click="sharetips()"></button>
       <button mfb-button icon="ion-clipboard"></button>
       <button mfb-button icon="ion-android-restaurant" ng-click="sharefood()"></button>
     </nav>
@@ -97,14 +97,17 @@
               <!--| tipsFilter:searchText-->
               <div>
                 <div class="title-tips">
-                  How To Save Fresh Fish for Two Weeks
+                  {{value.title}}
                 </div>
                 <div class="createddate-tips">
-                  20 kk
+                  {{value.created | date: 'dd/MM/yyyy HH:mm:ss'}}
                   <!--{{value.exp_date | date: 'dd/MM/yyyy'}}-->
                 </div>
                 <div class="desc-tips">
-                  Before refrigerating a fish, wasih it in cold water and dry it with a clean cloth or paper towels
+                  {{value.desc | limitTo:100}}...
+                </div>
+                <div class="readmore-tips">
+                  read more
                 </div>
               </div>
               <!--class="item-thumbnail-left"-->

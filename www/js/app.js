@@ -154,6 +154,11 @@ angular.module('starter', ['firebase','ionic', 'starter.controllers', 'ionic.clo
     templateUrl: 'templates/aglio/share-recipe.html',
     controller: 'ShareRecipeCtrl'
   })
+  .state('tips-detail', {
+    url: '/tips-detail/:id',
+    templateUrl: 'templates/aglio/tips-detail.html',
+    controller: 'TipsDetailCtrl'
+  })
   .state('share-tips', {
     url: '/share-tips',
     templateUrl: 'templates/aglio/share-tips.html',
