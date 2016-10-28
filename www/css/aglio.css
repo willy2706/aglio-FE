@@ -8,12 +8,35 @@
   font-size: 13px;
   word-wrap: break-word;
   white-space: normal;
+  font-family: SourceSansPro;
 }
 
+.createddate-tips {
+  font-size: 13px;
+  word-wrap: break-word;
+  white-space: normal;
+  font-family: SourceSansPro;
+  color: grey;
+}
+
+.desc-tips {
+  font-size: 13px;
+  word-wrap: break-word;
+  white-space: normal;
+  font-family: SourceSansPro;
+  padding-top: 5px;
+}
+
+.title-tips {
+  font-weight: bold;
+  font-size: 18px;
+  font-family: SourceSansProBold;
+}
 .searchbar-home {
   background-color: white;
   padding-left: 20px;
   margin-top: 90px;
+  font-family: SourceSansPro;
 }
 
 .price-home {
@@ -21,6 +44,7 @@
   padding-right: 40px;
   font-size: 13px;
   color: #76aaf7;
+  font-family: SourceSansPro;
 }
 
 .expdate-home {

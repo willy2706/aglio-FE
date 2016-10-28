@@ -10,8 +10,6 @@ angular.module('starter.controllers', ['ionic.cloud'])
       })
 //      alert(t.token)
     });
-        console.log(angular.element('.tab-nav.tabs').css('position'))
-        console.log(angular.element('.tab-nav.tabs').css('top'))
     $scope.$on('cloud:push:notification', function(event, data) {
       var msg = data.message;
       alert(msg.title + ': ' + msg.text);
@@ -19,14 +17,18 @@ angular.module('starter.controllers', ['ionic.cloud'])
     var ref = firebase.database().ref().child("food");
     var obj = $firebaseObject(ref);
     console.log(obj);
-    var x;
     firebase.database().ref().child("food").on('value', function(snap) {
       var y = snap.val()
       $scope.data = y;
       console.log(y);
     });
-
     obj.$bindTo($scope, "data")
+
+    firebase.database().ref().child("tips").on('value', function(snap) {
+      var y = snap.val()
+      $scope.tips = y;
+      console.log(y);
+    });
 
     $scope.sharefood = function() {
       $state.go('share-food');
