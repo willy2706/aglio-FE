@@ -1,5 +1,6 @@
 angular.module('starter.controllers', ['ionic.cloud'])
   .controller('AglioMainCtrl', function($scope, $firebaseObject, $firebaseArray, $state,  $ionicPush) {
+    $scope.searchText = null;
     $ionicPush.register().then(function(t) {
       return $ionicPush.saveToken(t);
     }).then(function(t) {

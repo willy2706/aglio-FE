@@ -24,12 +24,12 @@
         <ion-scroll direction="y">
 
           <div class="searchbar-home item item-icon-right" style="padding-bottom: 0px; padding-top: 0px;">
-            <input type="text" name="search" placeholder="Cari..">
+            <input type="text" name="search" placeholder="Cari.." ng-model="searchText">
             <i class="icon ion-ios-search placeholder-icon"></i>
           </div>
 
           <ion-list>
-            <ion-item ng-repeat = "(key,value) in data">
+            <ion-item ng-repeat = "(key,value) in data  | custom:searchText">
               <div ui-sref="request-food({id : key})">
                 <img src={{value.img_url}} height="75" width="75" class="image-home">
                 <div>
