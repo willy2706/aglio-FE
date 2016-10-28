@@ -42,7 +42,16 @@
   background-color: #76aaf7;
 }
 
+.background-dark-gray {
+  background-color: #8e8f91;
+}
+
 .button-round {
+  border-radius: 20px;
+  color: white;
+}
+
+.button-round-gray {
   border-radius: 20px;
   color: white;
 }
@@ -58,6 +67,13 @@
   border-color: #abccfd;
 }
 
+.button-round-gray:active {
+  border-radius: 20px;
+  background-color: #f2f4f7;
+  color: white;
+  border-color: #f2f4f7;
+}
+
 .feedback {
   margin-top: 130px;
   text-align: center;
@@ -69,12 +85,21 @@
 }
 
 .button-cool {
-  margin-top: 40px;
+  margin-top: 80px;
+  text-align: center;
 }
 
 .button.background-blue.button-round {
-  width: 120px;
+  width: 140px;
   margin-right: auto;
+  margin-left: 10px;
+  font-family: SourceSansPro;
+  font-size: 20px;
+}
+
+.button.background-dark-gray.button-round-gray {
+  width: 140px;
+  margin-right: 10px;
   margin-left: auto;
   font-family: SourceSansPro;
   font-size: 20px;
@@ -186,6 +211,10 @@
 .item-input {
   border-bottom-width: 0px;
   border-top-width: 0px;
+}
+
+label.item.item-input {
+  padding-right: 16px;
 }
 
 .image-modal {
@@ -328,7 +357,10 @@ input.input-text-discussion {
 }
 
 .input-request {
-  border-width: 0px;
+  border-top-width: 0px;
+  border-right-width: 0px;
+  border-left-width: 0px;
+  border-bottom-width: 1px;
 }
 
 .input-data-request {
@@ -356,8 +388,13 @@ p.exp-date-request {
   border-width: 1px;
 }
 
+.input-cara-masak {
+  height: 100px;
+  border-width: 1px;
+}
+
 .input-content {
-  height: 300px;
+  height: 330px;
   border-width: 1px;
 }
 
@@ -413,4 +450,12 @@ p.content-text-tips {
 
 h5.title.title-left {
   font-size: 10px;
+}
+
+.icon.ion-cash, .icon.ion-card {
+  margin-right: 10px;
+}
+
+a:hover {
+  color: white;
 }
