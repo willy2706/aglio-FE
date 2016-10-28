@@ -213,6 +213,95 @@ angular.module('starter.controllers', ['ionic.cloud'])
     });
   })
 
+  .controller('TipsCtrl', function($scope, $firebaseObject, $firebaseArray, $ionicModal, $ionicPopover) {
+
+    var ref = firebase.database().ref().child("food");
+    var obj = $firebaseObject(ref);
+    console.log(obj);
+    var x;
+    firebase.database().ref().child("food").on('value', function(snap) {
+      var y = snap.val()
+      $scope.data = y;
+      console.log(y);
+    });
+
+    obj.$bindTo($scope, "data")
+
+    $ionicModal.fromTemplateUrl('modal-share-facebook.html', {
+      id: '1',
+      scope: $scope,
+      animation: 'slide-in-up'
+    }).then(function(modal) {
+      $scope.oModal1 = modal;
+    });
+
+    $ionicModal.fromTemplateUrl('modal-share-twitter.html', {
+      id: '2',
+      scope: $scope,
+      animation: 'slide-in-up'
+    }).then(function(modal) {
+      $scope.oModal2 = modal;
+    });
+
+    $scope.openModal = function(index) {
+      if (index == 1) $scope.oModal1.show();
+      else $scope.oModal2.show();
+    };
+
+    $scope.closeModal = function(index) {
+      if (index == 1) $scope.oModal1.hide();
+      else $scope.oModal2.hide();
+    };
+    // Cleanup the modal when we're done with it!
+    $scope.$on('modal.shown', function(event, modal) {
+      console.log('Modal ' + modal.id + ' is shown!');
+    });
+    // Execute action on hide modal
+    $scope.$on('modal.hidden', function(event, modal) {
+      console.log('Modal ' + modal.id + ' is hidden!');
+    });
+    // Execute action on remove modal
+    $scope.$on('$destroy', function() {
+      console.log('Destroying modals...');
+      $scope.oModal1.remove();
+      $scope.oModal2.remove();
+    });
+
+    // .fromTemplate() method
+    var template = '<ion-popover-view><ion-header-bar> <h1 class="title">My Popover Title</h1> </ion-header-bar> <ion-content> Hello! </ion-content></ion-popover-view>';
+
+    $scope.popover = $ionicPopover.fromTemplate(template, {
+      scope: $scope
+    });
+
+    // .fromTemplateUrl() method
+    $ionicPopover.fromTemplateUrl('my-popover.html', {
+      scope: $scope
+    }).then(function(popover) {
+      $scope.popover = popover;
+    });
+
+
+    $scope.openPopover = function($event) {
+      $scope.popover.show($event);
+    };
+    $scope.closePopover = function() {
+      $scope.popover.hide();
+    };
+    //Cleanup the popover when we're done with it!
+    $scope.$on('$destroy', function() {
+      $scope.popover.remove();
+    });
+    // Execute action on hidden popover
+    $scope.$on('popover.hidden', function() {
+      // Execute action
+    });
+    // Execute action on remove popover
+    $scope.$on('popover.removed', function() {
+      // Execute action
+    });
+  })
+
   .controller('RequestFoodCtrl', function($scope, $firebaseObject, $firebaseArray, $ionicModal, $stateParams, $state) {
     $scope.gomain = function () {
       angular.element('.tab-nav.tabs').css('position','absolute')

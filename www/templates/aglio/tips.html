@@ -1,28 +1,95 @@
-<ion-view view-title="Dashboard">
-  <ion-content class="padding">
-    <div class="list card">
-      <div class="item item-divider">Recent Updates</div>
-      <div class="item item-body">
-        <div>
-          There is a fire in <b>sector 3</b>
-        </div>
-      </div>
-    </div>
-    <div class="list card">
-      <div class="item item-divider">Health</div>
-      <div class="item item-body">
-        <div>
-          You ate an apple today!
-        </div>
-      </div>
-    </div>
-    <div class="list card">
-      <div class="item item-divider">Upcoming</div>
-      <div class="item item-body">
-        <div>
-          You have <b>29</b> meetings on your calendar tomorrow.
-        </div>
-      </div>
+<ion-view style="background: white;">
+  <!--<ion-header-bar class="bar-positive orange-bar">-->
+  <!--<div class="buttons">-->
+  <!--<button class="arrowanalyze" ng-click="onSwipeRightAnalyze()"></button>-->
+  <!--</div>-->
+  <!--<h1 class="title" style="text-align: left">Budget Analysis</h1>-->
+  <!--</ion-header-bar>-->
+  <ion-nav-bar class="bar-positive grey-bar" >
+    <ion-nav-title>
+    <a class="button icon-left ion-ios-arrow-left button-clear button-dark" ng-click="gomain()"></a>
+    <h1 class="title" style="text-align: center; font-family: LatoLight; color: #242a34; font-size: 22px;">Tips</h1>
+    <a class="button icon-right ion-share button-clear button-dark" ng-click="openPopover($event)"></a>
+    </ion-nav-title>
+  </ion-nav-bar>
+
+  <ion-content fab-scroll-container>
+    
+    <div class="list content-tips">
+      <h3>5 Metode Alami Awetkan Makanan Tanpa Kulkas</h3>
+      <p class="date-tips-content">20 Oktober 2016</p>
+      <p class="content-text-tips"> Kulkas menjadi salah satu tempat penyimpanan makanan agar tahan lama. Namun tahukah Anda bahwa ada metode lain yang bisa Anda lakukan untuk tetap dapat menjaga makanan Anda awet tanpa masuk kulkas. Anda tetap bisa menjaga kualitas dan kesegaran sayuran, buah dan beberapa jenis makanan lain dengan cara-cara alami ini.</br></br>
+      <span style="font-weight: bold;">#1 Mangkuk berisi air dingin</span></br>
+      Metode ini digunakan untuk bahan makanan jenis sayur-sayuran atau buah. Caranya, isi mangkuk dengan air dingin kemudian rendam bahan makanan Anda di dalamnya agar tetap segar. Pastikan makanan tersebut dikomsumsi dalam waktu beberapa hari kemudian agar kesegarannya masih terjaga.</br></br>
+      <span style="font-weight: bold;">#2 Es Batu</span></br>
+      Untuk menyimpan makanan seperti buah-buahan dan sayur-sayuran, Anda dapat menggunakan semangkuk es batu. Serupa dengan metode pertama, gunakan mangkuk berisi es batu lalu masukkan bahan makanan.</br></br>
+      <span style="font-weight: bold;">#3 Udara Dingin/Sejuk</span></br>
+      Makanan memang akan jauh lebih awet ketika ditempatkan di ruangan bersuhu rendah. Jadi, apabila Anda kebetulan tidak punya kulkas, maka Anda bisa memanfaatkan ruangan bersuhu rendah atau sejuk sebagai alternatif lain.</br></br>
+      <span style="font-weight: bold;">#4 Dikeringkan</span></br>
+      Metode yang satu ini memang hanya bisa diterapkan untuk jenis-jenis makanan tertentu saja, seperti daging dan ikan. Caranya, jemurlah makanan di bawah sinar matahari hingga teksturnya benar-benar mengeras dan kering, lalu simpan di tempat yang bersuhu normal.</br></br>
+      <span style="font-weight: bold;">#5 Pengasapan</span></br>
+      Metode ini sedah diterapkan sejak lama, terutama bagi masyarakat yang tinggal di pesisir. Biasanya makanan yang lebih banyak diawetkan dengan cara pengasapan adalah ikan dan hasil laut lainnya. Pengasapan ini terbukti dapat mengawetkan makanan dalam jangka waktu yang lebih lama.</p>
     </div>
   </ion-content>
+
+  <!-- MODAL -->
+  <script id="modal-share-facebook.html" type="text/ng-template">
+    <ion-modal-view>
+      <ion-content class="padding background-gray">
+        <div class="feedback">
+          <img class="image-modal" src="img/facebook.png" alt="">
+          <h4>Hore!</h4>
+          <p class="words-feedback">Kamu baru saja berbagi tips ke teman-temanmu.</p>
+          <div class="button-cool">
+            <button class="button background-blue button-round" ng-click = "closeModal(1)">
+              Ok!
+            </button>
+          </div>
+        </div>
+      </ion-content>
+    </ion-modal-view>
+  </script>
+
+  <script id="modal-share-twitter.html" type="text/ng-template">
+    <ion-modal-view>
+      <ion-content class="padding background-gray">
+        <div class="feedback">
+          <img class="image-modal" src="img/twitter-1.png" alt="">
+          <h4>Twit!</h4>
+          <p class="words-feedback">Kamu baru saja berbagi tips ke followers-mu.</p>
+          <div class="button-cool">
+            <button class="button background-blue button-round" ng-click = "closeModal(2)">
+              Ok!
+            </button>
+          </div>
+        </div>
+      </ion-content>
+    </ion-modal-view>
+  </script>
+
+  <!-- POP OVER -->
+  <script id="my-popover.html" type="text/ng-template">
+    <ion-popover-view style="height:150px;">
+      <ion-header-bar>
+        <h5 class="title">Bagikan ke</h5>
+      </ion-header-bar>
+      <ion-content>
+          <div class="list">
+            <a class="item" ng-click = "openModal(1)">
+              Facebook
+            </a>
+            <a class="item" ng-click = "openModal(2)">
+              Twitter
+            </a>
+          </div>
+        </ion-content>
+    </ion-popover-view>
+  </script>
+
+  <!-- STICKY BUTTON BOTTOM -->
+  <!-- <ion-footer-bar class="background-blue" style="height:50px;">
+    <button class="button button-large button-full background-blue font-white button-bottom" style="margin-top:5px; font-size:24px; font-family:SourceSansPro;" ng-click="openModal()">
+      BAGIKAN
+    </button>
+  </ion-footer-bar> -->
 </ion-view>

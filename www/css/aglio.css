@@ -398,3 +398,19 @@ p.date-tips {
   color: #aeaeae;
   font-size: 12px;
 }
+
+.content-tips {
+  margin: 25px 25px 25px 25px;
+}
+
+p.date-tips-content {
+  color: #aeaeae;
+}
+
+p.content-text-tips {
+  margin-top: 30px;
+}
+
+h5.title.title-left {
+  font-size: 10px;
+}

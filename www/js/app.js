@@ -116,6 +116,11 @@ angular.module('starter', ['firebase','ionic', 'starter.controllers', 'ionic.clo
     templateUrl: 'templates/aglio/my-food.html',
     controller: 'MyFoodCtrl'
   })
+  .state('tips', {
+    url: '/tips',
+    templateUrl: 'templates/aglio/tips.html',
+    controller: 'TipsCtrl'
+  })
   .state('expenses', {
     url: '/expenses',
     templateUrl: 'templates/expenses.html',
@@ -143,14 +148,14 @@ angular.module('starter', ['firebase','ionic', 'starter.controllers', 'ionic.clo
       }
     }
   })
-  .state('aglio.tips', {
-    url: '/tips',
-    views: {
-      'tab-tips': {
-        templateUrl: 'templates/aglio/tips.html'
-      }
-    }
-  })
+  // .state('aglio.tips', {
+  //   url: '/tips',
+  //   views: {
+  //     'tab-tips': {
+  //       templateUrl: 'templates/aglio/tips.html'
+  //     }
+  //   }
+  // })
   .state('main', {
       url: '/main',
       templateUrl: 'templates/aglio/main.html',
