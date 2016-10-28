@@ -1,0 +1,68 @@
+<ion-view style="background: white;">
+  <!--<ion-header-bar class="bar-positive orange-bar">-->
+  <!--<div class="buttons">-->
+  <!--<button class="arrowanalyze" ng-click="onSwipeRightAnalyze()"></button>-->
+  <!--</div>-->
+  <!--<h1 class="title" style="text-align: left">Budget Analysis</h1>-->
+  <!--</ion-header-bar>-->
+
+  <ion-nav-bar class="bar-positive grey-bar" >
+    <ion-nav-title>
+      <a class="button icon-left ion-ios-arrow-left button-clear button-dark" ng-click="gomain()"></a>
+      <h1 class="title" style="text-align: center; font-family: LatoLight; color: #242a34; font-size: 22px;">{{data.title}}</h1>
+    </ion-nav-title>
+  </ion-nav-bar>
+
+  <ion-content class="has-footer">
+    <div class="photo-area-request">
+      <img class="request-photo" src="{{data.img_url}}" alt="">
+      <div class="float-photo-user" style="background: url({{usrimg}});-webkit-background-size: cover;">
+
+      </div>
+    </div>
+    <div class="list content-tabs-detail">
+      <div class="title-recipedetail">
+        Bahan
+      </div>
+      <div class="ingredients-recipedetail" ng-bind-html="compiledIngredient">
+        1. a
+        2. b
+      </div>
+      <div class="directiontitle-recipedetail">
+        Cara memasak
+      </div>
+      <div class="directioncontainer-recipedetail" ng-bind-html="compiledDirection">
+      </div>
+    </div>
+
+
+  </ion-content>
+
+  <!-- MODAL -->
+  <script id="modal-recipe-detail.html" type="text/ng-template">
+    <ion-modal-view>
+      <ion-content class="padding background-gray">
+        <div class="feedback">
+          <img class="image-modal" src="img/book.png" alt="">
+          <h4>Wow!</h4>
+          <p class="words-feedback">Kamu baru saja berbagi resep baru.</p>
+          <div class="button-cool">
+            <button class="button background-blue button-round" ng-click = "closeModal()">
+              Keren!
+            </button>
+          </div>
+        </div>
+      </ion-content>
+    </ion-modal-view>
+  </script>
+
+  <!-- STICKY BUTTON BOTTOM -->
+  <ion-footer-bar class="background-blue" style="height:50px;">
+    <button class="button button-large button-full background-blue font-white button-bottom" style="margin-top:5px; font-size:24px; font-family:SourceSansPro;" ng-click="modal.show()">
+      BAGIKAN
+    </button>
+  </ion-footer-bar>
+</ion-view>
+
+
+

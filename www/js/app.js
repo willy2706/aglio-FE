@@ -106,6 +106,24 @@ angular.module('starter', ['firebase','ionic', 'starter.controllers', 'ionic.clo
     return result;
   }
 })
+
+.filter('recipeFilter', function() {
+  return function(input, search) {
+    if (!input) return input;
+    if (!search) return input;
+    var expected = ('' + search).toLowerCase();
+    var result = {};
+    angular.forEach(input, function(value, key) {
+      if (value !== null && typeof value.title !== "undefined") {
+        var sources = ('' + value.title).toLowerCase();
+        if (sources.indexOf(expected) !== -1) {
+          result[key] = value;
+        }
+      }
+    });
+    return result;
+  }
+})
 .config(function($ionicCloudProvider) {
   $ionicCloudProvider.init({
     "core": {
@@ -159,6 +177,11 @@ angular.module('starter', ['firebase','ionic', 'starter.controllers', 'ionic.clo
     url: '/tips-detail/:id',
     templateUrl: 'templates/aglio/tips-detail.html',
     controller: 'TipsDetailCtrl'
+  })
+  .state('recipe-detail', {
+    url: '/recipe-detail/:id',
+    templateUrl: 'templates/aglio/recipe-detail.html',
+    controller: 'RecipeDetailCtrl'
   })
   .state('share-tips', {
     url: '/share-tips',

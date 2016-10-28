@@ -10,7 +10,7 @@
   <ion-content>
     <nav mfb-menu position="br" effect="slidein-spring" active-icon="ion-ios-close-empty" resting-icon="ion-ios-plus-empty" toggling-method="click">
       <button mfb-button icon="ion-document-text" ng-click="sharetips()"></button>
-      <button mfb-button icon="ion-clipboard"></button>
+      <button mfb-button icon="ion-clipboard" ng-click = "sharerecipe()"></button>
       <button mfb-button icon="ion-android-restaurant" ng-click="sharefood()"></button>
     </nav>
     <ion-nav-bar class="bar-positive grey-bar" >
@@ -60,25 +60,26 @@
         <ion-scroll direction="y">
 
           <div class="searchbar-home item item-icon-right" style="padding-bottom: 0px; padding-top: 0px;">
-            <input type="text" name="search" placeholder="Cari..">
+            <input type="text" name="search" placeholder="Cari.." ng-model="searchTextRecipe">
             <i class="icon ion-ios-search placeholder-icon"></i>
           </div>
           <ion-list>
-            <ion-item ng-repeat = "(key,value) in data">
-              <div ui-sref="request-food({id : key})">
+            <ion-item ng-repeat = "(key,value) in recipe | recipeFilter:searchTextRecipe">
+              <div ui-sref="recipe-detail({id : key})">
                 <img src={{value.img_url}} height="75" width="75" class="image-home">
-                <div>
+                <div class="title-recipe">
                   {{value.title}}
                 </div>
-                <div class="eta-recipe" ng-if="value.price==0">
-                  25 mins.
+                <div class="eta-recipe">
+                  {{value.time}} mins
                 </div>
-                <div class="star-recipe" ng-if="value.price==0">
-                  <div class="star-single-recipe fa-star"></div>
-                  <div class="star-single-recipe fa-star"></div>
-                  <div class="star-single-recipe fa-star"></div>
-                  <div class="star-single-recipe fa-star-half-o"></div>
-                  <div class="star-single-recipe fa-star-o"></div>
+                <div class="star-recipe" ng-repeat="i in getNumber(5) track by $index">
+                  <div class="star-single-recipe fa fa-star" ng-if="$index<value.star"></div>
+                  <div class="star-single-recipe fa fa-star-o" ng-if="$index>=value.star"></div>
+                  <!--<div class="star-single-recipe fa fa-star"></div>-->
+                  <!--<div class="star-single-recipe fa fa-star"></div>-->
+                  <!--<div class="star-single-recipe fa fa-star-half-o"></div>-->
+                  <!--<div class="star-single-recipe fa fa-star-o"></div>-->
                 </div>
               </div>
               <!--class="item-thumbnail-left"-->
@@ -89,13 +90,13 @@
       <ion-tab title="Tips">
         <ion-scroll direction="y">
           <div class="searchbar-home item item-icon-right" style="padding-bottom: 0px; padding-top: 0px;">
-            <input type="text" name="search" placeholder="Cari.." ng-model="searchTextRecipe">
+            <input type="text" name="search" placeholder="Cari.." ng-model="searchTextTips">
             <i class="icon ion-ios-search placeholder-icon"></i>
           </div>
           <ion-list>
-            <ion-item ng-repeat = "(key,value) in tips | tipsFilter:searchTextRecipe">
+            <ion-item ng-repeat = "(key,value) in tips | tipsFilter:searchTextTips">
               <!--| tipsFilter:searchText-->
-              <div>
+              <div ui-sref="tips-detail({id : key})">
                 <div class="title-tips">
                   {{value.title}}
                 </div>

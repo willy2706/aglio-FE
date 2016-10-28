@@ -43,6 +43,48 @@
   font-family: SourceSansPro;
 }
 
+.title-recipe {
+  font-size: 20px;
+  font-family: SourceSansPro;
+}
+
+.title-recipedetail {
+  font-size: 30px;
+  padding-left: 26px;
+  color: grey;
+  font-family: SourceSansPro;
+}
+.directioncontainer-recipedetail {
+  padding-top: 20px;
+  font-size: 15px;
+  padding-left: 26px;
+  color: grey;
+  font-family: SourceSansPro;
+}
+.directiontitle-recipedetail {
+  padding-top: 20px;
+  font-size: 30px;
+  padding-left: 26px;
+  color: grey;
+  font-family: SourceSansPro;
+}
+
+.ingredients-recipedetail {
+    padding-top: 20px;
+    font-size: 15px;
+    padding-left: 26px;
+    color: grey;
+    font-family: SourceSansPro;
+}
+
+.time-recipe {
+  float: left;
+  padding-right: 40px;
+  font-size: 13px;
+  color: #76aaf7;
+  font-family: SourceSansPro;
+}
+
 .content-tipsdetail {
   padding-top: 20px;
   font-size: 17px;
@@ -74,7 +116,13 @@
 }
 
 .content-sharetips {
+
+  padding-left: 26px;
   width : 94%;
+}
+.ta-scroll-window.ta-text.ta-editor.form-control.myform2-height {
+  min-height: 0px;
+  height: 300px;
 }
 
 .searchbar-home {
@@ -98,13 +146,15 @@
 }
 
 .eta-recipe {
+  padding-top: 5px;
   padding-right: 40px;
   font-size: 13px;
   color: #76aaf7;
 }
 
 .star-recipe {
-  font-size: 13px;
+  padding-top: 2px;
+  font-size: 15px;
   word-wrap: break-word;
   white-space: normal;
   color: yellow;
@@ -438,13 +488,23 @@ p.exp-date-request {
   color: #76aaf7;
 }
 
-.input-ingredients {
-  height: 70px;
+.input-ingredient {
+  height: 20px;
+  padding-left: 26px;
   border-width: 1px;
+  width: 94%;
+}
+
+.input-direction {
+  height: 80px;
+  padding-left: 26px;
+  border-width: 1px;
+  width: 94%;
+  padding-top: 20px;
 }
 
 .input-content {
-  height: 300px;
+  height: 200px;
   border-width: 1px;
 }
 

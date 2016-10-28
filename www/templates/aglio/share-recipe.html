@@ -14,7 +14,7 @@
 
   <ion-content fab-scroll-container class="has-footer">
     <div class="photo-area" ng-click="photo()">
-    <img class="share-recipe" src="img/upload-image.png" alt="">
+    <img class="share-recipe" src="{{url}}" alt="">
       <div class="float-button-aglio">
         <span class="height-fix">
           <a class="content">
@@ -23,24 +23,25 @@
         </span>
       </div>
     </div>
-
     <div class="list content-form">
       <label class="item item-input">
         <span class="input-label">Judul Resep</span>
-        <input type="text" class="border-input">
+        <input type="text" class="border-input" ng-model="sharerecipe.title">
       </label>
       <label class="item item-input">
         <span class="input-label">Durasi</span>
-        <input type="text">
+        <input type="number" ng-model="sharerecipe.time">
       </label>
-      <label class="item item-input item-stacked-label">
+      <div class="item item-input item-stacked-label">
         <span class="input-label">Bahan-bahan</span>
-        <textarea class="input-ingredients" type="text"></textarea>
-      </label>
-      <label class="item item-input item-stacked-label">
-        <span class="input-label">Cara Masak</span>
-        <textarea type="text"></textarea>
-      </label>
+      </div>
+      <div text-angular ng-model="sharerecipe.ingredient" class="input-ingredient" ta-text-editor-class="form-control myform2-height"
+           ta-html-editor-class="form-control myform2-height"></div>
+      <div class="item item-input item-stacked-label">
+        <span class="input-label" style="padding-top: 300px;">Cara Masak</span>
+      </div>
+      <div text-angular ng-model="sharerecipe.direction" class="input-direction" ta-text-editor-class="form-control myform2-height"
+           ta-html-editor-class="form-control myform2-height"></div>
     </div>
   </ion-content>
 
@@ -64,7 +65,7 @@
 
   <!-- STICKY BUTTON BOTTOM -->
   <ion-footer-bar class="background-blue" style="height:50px;">
-    <button class="button button-large button-full background-blue font-white button-bottom" style="margin-top:5px; font-size:24px; font-family:SourceSansPro;" ng-click="openModal()">
+    <button class="button button-large button-full background-blue font-white button-bottom" style="margin-top:5px; font-size:24px; font-family:SourceSansPro;" ng-click="share()">
       BAGIKAN
     </button>
   </ion-footer-bar>
