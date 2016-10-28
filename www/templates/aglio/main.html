@@ -63,6 +63,27 @@
             <input type="text" name="search" placeholder="Cari..">
             <i class="icon ion-ios-search placeholder-icon"></i>
           </div>
+          <ion-list>
+            <ion-item ng-repeat = "(key,value) in data">
+              <div ui-sref="request-food({id : key})">
+                <img src={{value.img_url}} height="75" width="75" class="image-home">
+                <div>
+                  {{value.title}}
+                </div>
+                <div class="eta-recipe" ng-if="value.price==0">
+                  25 mins.
+                </div>
+                <div class="star-recipe" ng-if="value.price==0">
+                  <div class="star-single-recipe fa-star"></div>
+                  <div class="star-single-recipe fa-star"></div>
+                  <div class="star-single-recipe fa-star"></div>
+                  <div class="star-single-recipe fa-star-half-o"></div>
+                  <div class="star-single-recipe fa-star-o"></div>
+                </div>
+              </div>
+              <!--class="item-thumbnail-left"-->
+            </ion-item>
+          </ion-list>
         </ion-scroll>
       </ion-tab>
       <ion-tab title="Tips">
