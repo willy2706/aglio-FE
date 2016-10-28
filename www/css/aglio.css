@@ -28,6 +28,24 @@
   color: #d95757
 }
 
+.eta-recipe {
+  padding-right: 40px;
+  font-size: 13px;
+  color: #76aaf7;
+}
+
+.star-recipe {
+  font-size: 13px;
+  word-wrap: break-word;
+  white-space: normal;
+  color: yellow;
+  float:left;
+}
+
+.star-single-recipe {
+  float: left;
+}
+
 @font-face {
     font-family: 'SourceSansPro';
     src: url('../fonts/source-sans-pro.regular.ttf');
