@@ -102,23 +102,23 @@
         <div class="request">
           <div class="list">
             <div class="item item-avatar" style="border-width:0px;">
-              <img src="img/fresh-apples-icon.png">
+              <img src="{{data.img_url}}">
               <h2 class="discussion-name">Apel Malang</h2>
               <p class="price-request" ng-if="data.price!=0">IDR {{data.price}}</p>
               <p class="price-request" ng-if="data.price==0">Free</p>
               <p class="exp-date-request">{{data.exp_date | date: 'dd/MM/yyyy'}}</p>
             </div>
-            <label class="item item-input item-stacked-label input-request">
-              <span class="input-label">Jumlah</span>
-              <input class="input-data-request" type="number" placeholder="Masukkan jumlah" max = "{{data.qty}}">
-            </label>
+            <!--<label class="item item-input item-stacked-label input-request">-->
+              <!--<span class="input-label">Jumlah</span>-->
+              <!--<input class="input-data-request" type="number" placeholder="Masukkan jumlah" max = "{{data.qty}}">-->
+            <!--</label>-->
             <label class="item item-input item-stacked-label input-request">
               <span class="input-label">Kirim ke</span>
               <input class="input-data-request"  type="text" placeholder="Masukkan alamat">
             </label>
             <label class="item item-input item-stacked-label input-request">
               <span class="input-label">Pembayaran</span>
-              <ion-radio class="radio-input" ng-model="choice" ng-value="'A'"><i class="icon ion-card"></i>Transfer</ion-radio>
+              <!--<ion-radio class="radio-input" ng-model="choice" ng-value="'A'"><i class="icon ion-card"></i>Transfer</ion-radio>-->
               <ion-radio class="radio-input" ng-model="choice" ng-value="'B'"><i class="icon ion-cash"></i>Bayar Ditempat</ion-radio>
             </label>
           </div>
@@ -126,7 +126,7 @@
             <button class="button background-dark-gray button-round-gray" ng-click="closeModal()">
               Batal
             </button>
-            <button class="button background-blue button-round" >
+            <button class="button background-blue button-round" ng-click="pesan()" >
               Pesan
             </button>
           </div>
@@ -136,7 +136,7 @@
   </script>
 
   <!-- STICKY BUTTON BOTTOM -->
-  <ion-footer-bar class="background-blue" style="height:50px;">
+  <ion-footer-bar class="background-blue" style="height:50px;" ng-hide="sameperson">
     <button class="button button-large button-full background-blue font-white button-bottom" style="margin-top:5px; font-size:24px; font-family:SourceSansPro;" ng-click="modal.show()">
       PESAN
     </button>

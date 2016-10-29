@@ -1,5 +1,8 @@
 angular.module('starter.controllers', ['ionic.cloud', 'textAngular'])
-.controller('AglioMainCtrl', function($scope, $firebaseObject, $firebaseArray, $state,  $ionicPush, $sce) {
+.controller('AglioMainCtrl', function($scope, $firebaseObject, $firebaseArray, $state,  $ionicPush, $sce, $http) {
+  $scope.myfood = function() {
+    $state.go('my-food')
+  }
   $scope.sharetips = function() {
     $state.go('share-tips')
   }
@@ -284,6 +287,9 @@ angular.module('starter.controllers', ['ionic.cloud', 'textAngular'])
 
 
 .controller('RecipeDetailCtrl', function($scope, $stateParams, $compile, $sce, $state, $ionicModal) {
+  $scope.gomain = function() {
+    $state.go('main')
+  }
   var id = $stateParams.id
   firebase.database().ref().child("recipe").child(id).on('value', function(snap) {
     var y = snap.val()
@@ -291,11 +297,12 @@ angular.module('starter.controllers', ['ionic.cloud', 'textAngular'])
     console.log(y);
     $scope.compiledIngredient = $sce.trustAsHtml($scope.data.ingredient);
     $scope.compiledDirection = $sce.trustAsHtml($scope.data.direction);
+
+    firebase.database().ref().child("users").child(y.user).on('value', function(snap1) {
+      var z = snap1.val();
+      console.log(z.img)
+      $scope.usrimg = z.img
     })
-   firebase.database().ref().child("users").child(y.user).on('value', function(snap1) {
-    var z = snap1.val();
-    console.log(z.img)
-    $scope.usrimg = z.img
   })
   $ionicModal.fromTemplateUrl('modal-recipe-detail.html', {
       scope: $scope,
@@ -467,10 +474,62 @@ angular.module('starter.controllers', ['ionic.cloud', 'textAngular'])
     });
   })
 
-  .controller('RequestFoodCtrl', function($scope, $firebaseObject, $firebaseArray, $ionicModal, $stateParams, $state) {
+  .controller('RequestFoodCtrl', function($http, UserID, $scope, $firebaseObject, $firebaseArray, $ionicModal, $stateParams, $state) {
     $scope.gomain = function () {
       angular.element('.tab-nav.tabs').css('position','absolute')
       angular.element('.tab-nav.tabs').css('top','44px')
+      $state.go('main')
+    }
+
+    $scope.pesan = function() {
+      var d = new Date();
+      var n = d.getTime();
+      var id = Math.floor(n / -1000);
+      $scope.pesanan = {
+        buyer: UserID,
+        seller: $scope.data.user,
+        food: $stateParams.id
+      }
+      var token = []
+      firebase.database().ref().child('food').child($stateParams.id).update({
+        status : "DONE"
+      })
+      firebase.database().ref().child('transaction').child(id).set($scope.pesanan);
+      firebase.database().ref().child('users').child($scope.data.user).on('value', function(snap) {
+        var tmp = snap.val()
+        token.push(tmp.token)
+      })
+      console.log(token)
+//      token.push("fjEu2fyMmTY:APA91bG4Yyg4MZy4FFzCLa5pnZF8OMhR8gi5bQr7gIDg9oSdNS05SU4DG-8JIFt4K4QVyDBNqfFa1av2mBrwL83uu3ORIyIuEGYVjcJj8kAChqai2YjHEBFMU-Y2Uc07rdrWErG4dal3")
+      $http({
+        method: 'POST',
+        url: 'https://api.ionic.io/push/notifications',
+         headers: {
+           'Content-Type': 'application/json',
+           'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJhZDY3YzM1Yi01Mzg2LTQ4MmUtODJmNy04MjhhNzY3M2M2YjYifQ.oxUOZTyZjb-CgoXPjef3674Nq1A_gxanP1wOt_mm3UQ',
+         },
+         data: {
+          tokens: token,
+          profile: 'firebase',
+          notification: {
+            title: "Aglio",
+            message: "Ada pesanan masuk!",
+            android: {
+              title: "Aglio",
+              message: "Ada pesanan masuk!"
+            }
+          }
+         }
+      }).then(function successCallback(response) {
+        console.log(response)
+          // this callback will be called asynchronously
+          // when the response is available
+        }, function errorCallback(response) {
+        console.log(response)
+          // called asynchronously if an error occurs
+          // or server returns response with an error status.
+        });
+      alert('barang berhasil dipesan')
       $state.go('main')
     }
 //
@@ -484,10 +543,18 @@ angular.module('starter.controllers', ['ionic.cloud', 'textAngular'])
   angular.element('.tab-nav.tabs').css('top','0px')
 
 //    var fbse = firebase
+  $scope.sameperson = true;
   var id = $stateParams.id;
   firebase.database().ref().child("food").child(id).on('value', function(snap) {
     var y = snap.val()
     $scope.data = y;
+      console.log(y.user)
+      console.log(UserID)
+    if (y.user===UserID) {
+      $scope.sameperson = true;
+    } else {
+      $scope.sameperson = false;
+    }
     console.log(y.user);
     firebase.database().ref().child("users").child(y.user).on('value', function(snap1) {
       var z = snap1.val();
@@ -521,65 +588,48 @@ angular.module('starter.controllers', ['ionic.cloud', 'textAngular'])
   });
 })
 
-.controller('MyFoodCtrl', function($scope, $firebaseObject, $firebaseArray, $state,  $ionicPush) {
-    $ionicPush.register().then(function(t) {
-      return $ionicPush.saveToken(t);
-    }).then(function(t) {
-      console.log('Token saved:', t.token);
-      firebase.database().ref().child('token').set({
-        token : t.token
-      })
-//      alert(t.token)
-    });
-        console.log(angular.element('.tab-nav.tabs').css('position'))
-        console.log(angular.element('.tab-nav.tabs').css('top'))
-    $scope.$on('cloud:push:notification', function(event, data) {
-      var msg = data.message;
-      alert(msg.title + ': ' + msg.text);
-    });
-    var ref = firebase.database().ref().child("food");
+.controller('MyFoodCtrl', function(UserID, $scope, $firebaseObject, $firebaseArray, $state,  $ionicPush) {
+    var ref = firebase.database().ref().child("transaction");
     var obj = $firebaseObject(ref);
-    console.log(obj);
-    var x;
-    firebase.database().ref().child("food").on('value', function(snap) {
+    $scope.ygdipesan = {}
+    $scope.ygdibagikan = {}
+    var ygdibagikan = {};
+    var ygdipesan = {};
+    firebase.database().ref().child("transaction").on('value', function(snap) {
       var y = snap.val()
       $scope.data = y;
-      console.log(y);
-    });
+      angular.forEach(y, function(value, key) {
+        if (value.seller === UserID) {
+          firebase.database().ref().child("food").child(value.food).on('value', function(snap1) {
+//          console.log("Sekali")
+            ygdibagikan[value.food.toString()] = snap1.val();
+            $scope.ygdibagikan = ygdibagikan;
+            console.log($scope.ygdibagikan);
+          })
+        }
 
-    obj.$bindTo($scope, "data")
-
-  })
-
-.controller('MyFoodCtrl', function($scope, $firebaseObject, $firebaseArray, $state,  $ionicPush) {
-    $ionicPush.register().then(function(t) {
-      return $ionicPush.saveToken(t);
-    }).then(function(t) {
-      console.log('Token saved:', t.token);
-      firebase.database().ref().child('token').set({
-        token : t.token
+        if (value.buyer === UserID) {
+          console.log(value.food)
+          firebase.database().ref().child("food").child(value.food).on('value', function(snap1) {
+            ygdipesan[value.food.toString()] = snap1.val();
+            $scope.ygdipesan = ygdipesan;
+            console.log($scope.ygdipesan);
+          })
+//          $scope.ygdipesan[key] = value;
+        }
       })
-//      alert(t.token)
-    });
-        console.log(angular.element('.tab-nav.tabs').css('position'))
-        console.log(angular.element('.tab-nav.tabs').css('top'))
-    $scope.$on('cloud:push:notification', function(event, data) {
-      var msg = data.message;
-      alert(msg.title + ': ' + msg.text);
-    });
-    var ref = firebase.database().ref().child("food");
-    var obj = $firebaseObject(ref);
-    console.log(obj);
-    var x;
-    firebase.database().ref().child("food").on('value', function(snap) {
-      var y = snap.val()
-      $scope.data = y;
-      console.log(y);
+      console.log(ygdipesan);
     });
 
+    $scope.ygdibagikan = ygdibagikan;
+    $scope.ygdipesan = ygdipesan;
     obj.$bindTo($scope, "data")
 
+    $scope.gomain = function() {
+      $state.go('main')
+    }
   })
+
 
 .controller('DashCtrl', function($scope) {})
 
