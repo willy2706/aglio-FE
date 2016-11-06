@@ -55,7 +55,7 @@ angular.module('starter.controllers', ['ionic.cloud', 'textAngular'])
   }
 })
 
-.controller('ShareFoodCtrl', function($state, $scope, $firebaseObject, $firebaseArray, $ionicModal, Camera, ionicDatePicker) {
+.controller('ShareFoodCtrl', function(UserID, $state, $scope, $firebaseObject, $firebaseArray, $ionicModal, Camera, ionicDatePicker) {
   $scope.gomain = function() {
     $state.go('main')
   }
@@ -119,6 +119,7 @@ angular.module('starter.controllers', ['ionic.cloud', 'textAngular'])
     $scope.sharefood.created = n;
     $scope.sharefood.img_url = $scope.url == null ? "" : $scope.url;
     $scope.sharefood.status = "NONE";
+    $scope.sharefood.user = UserID
     firebase.database().ref().child('food').child(id).set($scope.sharefood);
     $scope.modal.show();
   };
@@ -156,7 +157,7 @@ angular.module('starter.controllers', ['ionic.cloud', 'textAngular'])
   });
 })
 
-.controller('ShareRecipeCtrl', function(taOptions, $scope, $firebaseObject, $firebaseArray, $ionicModal, Camera, $state) {
+.controller('ShareRecipeCtrl', function(UserID, taOptions, $scope, $firebaseObject, $firebaseArray, $ionicModal, Camera, $state) {
   taOptions.toolbar = [];
   $scope.gomain = function() {
     $state.go('main')
@@ -186,6 +187,8 @@ angular.module('starter.controllers', ['ionic.cloud', 'textAngular'])
     var id = Math.floor(n / -1000);
     $scope.sharerecipe.created = n;
     $scope.sharerecipe.img_url = $scope.url == null ? "" : $scope.url;
+    $scope.sharerecipe.star = 0;
+    $scope.sharerecipe.user = UserID;
     firebase.database().ref().child('recipe').child(id).set($scope.sharerecipe);
     $scope.modal.show();
   };
@@ -530,6 +533,8 @@ angular.module('starter.controllers', ['ionic.cloud', 'textAngular'])
           // or server returns response with an error status.
         });
       alert('barang berhasil dipesan')
+      angular.element('.tab-nav.tabs').css('position','absolute')
+      angular.element('.tab-nav.tabs').css('top','44px')
       $state.go('main')
     }
 //

@@ -21,7 +21,7 @@ angular.module('starter.services', ['ng-mfb'])
 }])
 
 .factory('UserID', function() {
-  return 123456;
+  return 123457;
 })
 
 .factory('Chats', function() {
